@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "CMGRetailTestService"
+  },
+  "host": "localhost:60505",
+  "schemes": [ "http" ],
+  "paths": {
+    "/api/Product": {
+      "get": {
+        "tags": [ "Products" ],
+        "operationId": "Products_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Product" }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Product/api/product/{id}": {
+      "get": {
+        "tags": [ "Products" ],
+        "operationId": "Products_GetProduct",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "object" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Product/api/product": {
+      "get": {
+        "tags": [ "Products" ],
+        "operationId": "Products_GetProducts",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "object" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Products/GetAllProducts": {
+      "get": {
+        "tags": [ "Products" ],
+        "operationId": "Products_GetAllProducts",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Product" }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    }
+  }
+}

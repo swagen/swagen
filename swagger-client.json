@@ -1,0 +1,22 @@
+{
+    "./samples/output.txt": {
+        "source": {
+            "file": "./samples/swagger.json"
+        }
+    },
+    "./samples/output2.txt": {
+        "source": {
+            "file": "./samples/swagger2.json"
+        }
+    },
+    "./samples/output3.txt": {
+        "source": {
+            "file": "./samples/swagger3.json"
+        }
+    },
+    "./samples/http-output.json": {
+        "source": {
+            "url": "http://petstore.swagger.io/v2/swagger.json"
+        }
+    }
+}

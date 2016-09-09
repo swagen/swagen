@@ -1,0 +1,3383 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "localhost:8700",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "find-my-rep-resource",
+      "description": "Find My Rep Resource"
+    },
+    {
+      "name": "mi-delegated-resource",
+      "description": "MI Delegated Resource"
+    },
+    {
+      "name": "city-address-resource",
+      "description": "City Address Resource"
+    },
+    {
+      "name": "b-2-b-application-resource",
+      "description": "B 2 B Application Resource"
+    },
+    {
+      "name": "master-policy-request-resource",
+      "description": "Master Policy Request Resource"
+    },
+    {
+      "name": "contract-service-agreement-resource",
+      "description": "Contract Service Agreement Resource"
+    },
+    {
+      "name": "rate-express-resource",
+      "description": "Rate Express Resource"
+    },
+    {
+      "name": "login-resource",
+      "description": "Login Resource"
+    }
+  ],
+  "paths": {
+    "/b2b/application/decisionpdf/{dispositionType}/{commitmentNumber}/{gnwLoanNumber}": {
+      "get": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "processApplicationDecisionPdf",
+        "operationId": "processApplicationDecisionPdfUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/pdf"
+        ],
+        "parameters": [
+          {
+            "name": "dispositionType",
+            "in": "path",
+            "description": "dispositionType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "commitmentNumber",
+            "in": "path",
+            "description": "commitmentNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gnwLoanNumber",
+            "in": "path",
+            "description": "gnwLoanNumber",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "byte"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/postal/usa/states": {
+      "get": {
+        "tags": [
+          "city-address-resource"
+        ],
+        "summary": "getAllUSStates",
+        "operationId": "getAllUSStatesUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StateVO"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/postal/{zipCode}": {
+      "get": {
+        "tags": [
+          "city-address-resource"
+        ],
+        "summary": "getCityStateFromZip",
+        "operationId": "getCityStateFromZipUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "zipCode",
+            "in": "path",
+            "description": "zipCode",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CityPostalVO"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/quicksubmit": {
+      "post": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "processQuickSubmitApplication",
+        "operationId": "processQuickSubmitApplicationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "quickSubmitVO",
+            "description": "quickSubmitVO",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QuickSubmitVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/QuickSubmitVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/quicksubmit/caps/{orgId}": {
+      "get": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "getCapsData",
+        "operationId": "getCapsDataUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "orgId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CapsDataVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/quicksubmit/duplicate/{orgId}/{lenderLoanNumber}": {
+      "get": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "getDuplicateApplicationForOrgAndLenderLoanNumber",
+        "operationId": "getDuplicateApplicationForOrgAndLenderLoanNumberUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "orgId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lenderLoanNumber",
+            "in": "path",
+            "description": "lenderLoanNumber",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DuplicateApplicationVO"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/{commitmentNumber}/lock": {
+      "post": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "lockApplication",
+        "operationId": "lockApplicationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "commitmentNumber",
+            "in": "path",
+            "description": "commitmentNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceStatusDTO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/{commitmentNumber}/unlock": {
+      "post": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "unlockApplication",
+        "operationId": "unlockApplicationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "commitmentNumber",
+            "in": "path",
+            "description": "commitmentNumber",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceStatusDTO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/{orgid}": {
+      "get": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "getPipelineApplications",
+        "operationId": "getPipelineApplicationsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orgid",
+            "in": "path",
+            "description": "orgid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userid",
+            "in": "query",
+            "description": "userid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/B2BPipelineVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/b2b/application/{source}/{referenceId}": {
+      "get": {
+        "tags": [
+          "b-2-b-application-resource"
+        ],
+        "summary": "getPipelineApplication",
+        "operationId": "getPipelineApplicationUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "source",
+            "in": "path",
+            "description": "source",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "referenceId",
+            "in": "path",
+            "description": "referenceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApplicationDetailVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/csagreement/isvalid": {
+      "get": {
+        "tags": [
+          "contract-service-agreement-resource"
+        ],
+        "summary": "checkForMasterPolicy",
+        "operationId": "checkForMasterPolicyUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "orgId",
+            "in": "query",
+            "description": "orgId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CSAgreementResponseVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/csagreement/submit": {
+      "post": {
+        "tags": [
+          "contract-service-agreement-resource"
+        ],
+        "summary": "submitCSAgreemnetRequest",
+        "operationId": "submitCSAgreemnetRequestUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CSAgreementRequestVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CSAgreementResponseVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/login/request": {
+      "post": {
+        "tags": [
+          "login-resource"
+        ],
+        "summary": "login",
+        "operationId": "loginUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "loginDto",
+            "description": "loginDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ValidationResponseDTO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/masterpolicy/completionEmail/{requesterEmail}": {
+      "get": {
+        "tags": [
+          "master-policy-request-resource"
+        ],
+        "summary": "sendMasterPolicyCompletionEmail",
+        "operationId": "sendMasterPolicyCompletionEmailUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "requesterEmail",
+            "in": "path",
+            "description": "requesterEmail",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MasterPolicyResponseVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/masterpolicy/isvalid/{mpRequestNo}": {
+      "get": {
+        "tags": [
+          "master-policy-request-resource"
+        ],
+        "summary": "checkForMasterPolicyValidity",
+        "operationId": "checkForMasterPolicyValidityUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "mpRequestNo",
+            "in": "path",
+            "description": "mpRequestNo",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MasterPolicyResponseVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/masterpolicy/notes": {
+      "post": {
+        "tags": [
+          "master-policy-request-resource"
+        ],
+        "summary": "saveMasterPolicyNotes",
+        "operationId": "saveMasterPolicyNotesUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "masterPolicyNotesVO",
+            "description": "masterPolicyNotesVO",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MasterPolicyNotesVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MasterPolicyResponseVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/masterpolicy/save": {
+      "post": {
+        "tags": [
+          "master-policy-request-resource"
+        ],
+        "summary": "createMasterPolicy",
+        "operationId": "createMasterPolicyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "masterPolicyVO",
+            "description": "masterPolicyVO",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MasterPolicyRequestVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MasterPolicyRequestVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/masterpolicy/{mpRequestNo}": {
+      "get": {
+        "tags": [
+          "master-policy-request-resource"
+        ],
+        "summary": "retrieveMasterPolicy",
+        "operationId": "retrieveMasterPolicyUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "mpRequestNo",
+            "in": "path",
+            "description": "mpRequestNo",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MasterPolicyRequestVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/midelegated/du/upload": {
+      "post": {
+        "tags": [
+          "mi-delegated-resource"
+        ],
+        "summary": "processDUFileUpload",
+        "operationId": "processDUFileUploadUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "duFile",
+            "in": "formData",
+            "description": "duFile",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MIDelegatedFileUploadResponseVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/midelegated/save": {
+      "post": {
+        "tags": [
+          "mi-delegated-resource"
+        ],
+        "summary": "saveMiDelegated",
+        "operationId": "saveMiDelegatedUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "mIDelegatedRequestVO",
+            "description": "mIDelegatedRequestVO",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MIDelegatedRequestVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MIDelegatedRequestVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/rate/getquote": {
+      "post": {
+        "tags": [
+          "rate-express-resource"
+        ],
+        "summary": "getQuote",
+        "operationId": "getQuoteUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "miRatesRequestWrapper",
+            "description": "miRatesRequestWrapper",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MIRatesRequestWrapperVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MIRatesResponseWrapperVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/rate/identify": {
+      "post": {
+        "tags": [
+          "rate-express-resource"
+        ],
+        "summary": "validateAndUpdateNmlsOrgAssociation",
+        "operationId": "validateAndUpdateNmlsOrgAssociationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "rateValidateRequestVO",
+            "description": "rateValidateRequestVO",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RateValidateRequestVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RateValidateResponseVO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/rate/quote/search": {
+      "post": {
+        "tags": [
+          "rate-express-resource"
+        ],
+        "summary": "searchQuotes",
+        "operationId": "searchQuotesUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "quoteSearchParamVO",
+            "description": "quoteSearchParamVO",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QuoteSearchParamVO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/QuoteSearchResultsVO"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/rate/quote/search/{quoteId}": {
+      "get": {
+        "tags": [
+          "rate-express-resource"
+        ],
+        "summary": "searchQuoteById",
+        "operationId": "searchQuoteByIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "quoteId",
+            "in": "path",
+            "description": "quoteId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MIRatesResponseWrapperVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/reps": {
+      "get": {
+        "tags": [
+          "find-my-rep-resource"
+        ],
+        "summary": "findRepById",
+        "operationId": "findRepByIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SalesRepVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/reps/search": {
+      "get": {
+        "tags": [
+          "find-my-rep-resource"
+        ],
+        "summary": "findMyReps",
+        "operationId": "findMyRepsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "zipcode",
+            "in": "query",
+            "description": "zipcode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fetch",
+            "in": "query",
+            "description": "fetch",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FindMyRepResultVO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "QuoteSearchParamVO": {
+      "type": "object",
+      "properties": {
+        "emailId": {
+          "type": "string"
+        },
+        "nmlsId": {
+          "type": "string"
+        }
+      }
+    },
+    "OrgAddressVO": {
+      "type": "object",
+      "properties": {
+        "addressId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressTypeCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string"
+        },
+        "unitOrAprtmntNum": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "zip": {
+          "type": "string"
+        }
+      }
+    },
+    "LoanBorrowerVO": {
+      "type": "object",
+      "properties": {
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddressVO"
+          }
+        },
+        "borrowerTypeCode": {
+          "type": "string"
+        },
+        "creditScore": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ethnicityCode": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "genderCode": {
+          "type": "string"
+        },
+        "isFirstTimeBuyer": {
+          "type": "boolean"
+        },
+        "isSelfEmployed": {
+          "type": "boolean"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "monthlyIncome": {
+          "type": "number",
+          "format": "double"
+        },
+        "noCreditScoreReasonCode": {
+          "type": "string"
+        },
+        "raceCode": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "willOccupySubjectProperty": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CityPostalVO": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "stateCode": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      }
+    },
+    "MIDelegatedFileUploadResponseVO": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "errorDesc": {
+          "type": "string"
+        },
+        "miDelegatedVO": {
+          "$ref": "#/definitions/MIDelegatedVO"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "MIDelegatedVO": {
+      "type": "object",
+      "properties": {
+        "assetInfo": {
+          "$ref": "#/definitions/AssetInfoVO"
+        },
+        "ausInfo": {
+          "$ref": "#/definitions/AUSInformationVO"
+        },
+        "borrowers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LoanBorrowerVO"
+          }
+        },
+        "isDUFileUpload": {
+          "type": "boolean"
+        },
+        "loanOriginatorInfo": {
+          "$ref": "#/definitions/LoanOriginatorInfoVO"
+        },
+        "loanPurpose": {
+          "$ref": "#/definitions/LoanPurposeVO"
+        },
+        "loanTerm": {
+          "$ref": "#/definitions/LoanTermsVO"
+        },
+        "miInfo": {
+          "$ref": "#/definitions/MIInformationVO"
+        },
+        "subjectPropertyAddress": {
+          "$ref": "#/definitions/AddressVO"
+        }
+      }
+    },
+    "ServiceStatusTypeVO": {
+      "type": "object",
+      "properties": {
+        "Category": {
+          "type": "string"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        }
+      }
+    },
+    "SalesRepVO": {
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "linkedInProfile": {
+          "type": "string"
+        },
+        "personalMessage": {
+          "type": "string"
+        },
+        "primaryPhoneNumber": {
+          "type": "string"
+        },
+        "salesRepId": {
+          "type": "string"
+        },
+        "secondaryPhoneNumber": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "AssetInfoVO": {
+      "type": "object",
+      "properties": {
+        "dtiPercentage": {
+          "type": "number",
+          "format": "double"
+        },
+        "giftFund": {
+          "type": "number",
+          "format": "double"
+        },
+        "isPledgedAsset": {
+          "type": "boolean"
+        },
+        "pledgedShares": {
+          "type": "number",
+          "format": "double"
+        },
+        "retirementFunds": {
+          "type": "number",
+          "format": "double"
+        },
+        "subLiquidAsset": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CSAgreementRequestVO": {
+      "type": "object",
+      "properties": {
+        "businessChannels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contact": {
+          "$ref": "#/definitions/CSAgreementContactVO"
+        },
+        "hfaInd": {
+          "type": "string"
+        },
+        "locationTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "masterPolicy": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "orgInfo": {
+          "$ref": "#/definitions/CSAgreementOrgInfoVO"
+        },
+        "requesterEmail": {
+          "type": "string"
+        },
+        "salesContacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CSAgreementSalesContactInfoVO"
+          }
+        },
+        "submissionTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "submitMoreLoansInd": {
+          "type": "string"
+        },
+        "webRequestId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "MultipartFile": {
+      "type": "object"
+    },
+    "MIRatesResponseWrapperVO": {
+      "type": "object",
+      "properties": {
+        "MIRatesResponse": {
+          "$ref": "#/definitions/MIRatesResponseVO"
+        }
+      }
+    },
+    "B2BPipelineVO": {
+      "type": "object",
+      "properties": {
+        "b2bPipelineApplications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ApplicationDetailVO"
+          }
+        }
+      }
+    },
+    "ValidationResponseDTO": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "loginValidation": {
+          "type": "string"
+        },
+        "redirectionurl": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "MetaDataVO": {
+      "type": "object",
+      "properties": {
+        "Operation_Source": {
+          "type": "string"
+        },
+        "Operation_Type": {
+          "type": "string"
+        }
+      }
+    },
+    "MasterPolicyNotesVO": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "miMasterPolicyNotesId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "miMasterPolicyRequestId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "notesCancelledInd": {
+          "type": "boolean"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "LoanTermsVO": {
+      "type": "object",
+      "properties": {
+        "amortizationMonths": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "armTypeCode": {
+          "type": "string"
+        },
+        "documentTypeCode": {
+          "type": "string"
+        },
+        "freqOfFirstAdjust": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "interestOnlyPeriod": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "interestRate": {
+          "type": "number",
+          "format": "double"
+        },
+        "isBalloon": {
+          "type": "boolean"
+        },
+        "isBiweekly": {
+          "type": "boolean"
+        },
+        "isInterestOnly": {
+          "type": "boolean"
+        },
+        "isNegativeAmortization": {
+          "type": "boolean"
+        },
+        "lenderLoanNumber": {
+          "type": "string"
+        },
+        "loanAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "loanTermMonths": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "loanTypeCode": {
+          "type": "string"
+        },
+        "monthsTillFirstAdjust": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orgCode": {
+          "type": "string"
+        },
+        "orgName": {
+          "type": "string"
+        },
+        "referenceNumber": {
+          "type": "string"
+        },
+        "subordinateFinanceAmt": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "MasterPolicyResponseVO": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "displayPage": {
+          "type": "string"
+        },
+        "isValidMasterPolicy": {
+          "type": "boolean"
+        },
+        "masterPolicyRequestVO": {
+          "$ref": "#/definitions/MasterPolicyRequestVO"
+        },
+        "referenceNumber": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "OrgInfoVO": {
+      "type": "object",
+      "properties": {
+        "businessChannels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "closeLoansInd": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mailingAddress": {
+          "$ref": "#/definitions/MailingAddressVO"
+        },
+        "miMasterPolicyOrgInfoId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nmlsId": {
+          "type": "string"
+        },
+        "orgAddress": {
+          "$ref": "#/definitions/OrgAddressVO"
+        },
+        "orgClassification": {
+          "type": "string"
+        },
+        "orgEstablished": {
+          "type": "string"
+        },
+        "orgName": {
+          "type": "string"
+        },
+        "orgWebsite": {
+          "type": "string"
+        },
+        "partnershipTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "servicerAddress": {
+          "$ref": "#/definitions/ServicerAddressVO"
+        },
+        "undwriteLoansInd": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "ApplicationDetailVO": {
+      "type": "object",
+      "properties": {
+        "appCreatedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "appSource": {
+          "type": "string"
+        },
+        "appStatus": {
+          "type": "string"
+        },
+        "appStatusOrderIndex": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "borrower": {
+          "$ref": "#/definitions/PrimaryBorrowerVO"
+        },
+        "currentDisposition": {
+          "$ref": "#/definitions/DispositionVO"
+        },
+        "gnwLoanNumber": {
+          "type": "string"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isRushLane": {
+          "type": "boolean"
+        },
+        "lenderLoanNumber": {
+          "type": "string"
+        },
+        "locationType": {
+          "type": "string"
+        },
+        "perfectedInd": {
+          "type": "boolean"
+        },
+        "referenceNumber": {
+          "type": "string"
+        },
+        "rushInd": {
+          "type": "boolean"
+        },
+        "sla": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "statusHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ApplicationStatusVO"
+          }
+        },
+        "submittingOrgId": {
+          "type": "string"
+        },
+        "submittingOrgName": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "AddressVO": {
+      "type": "object",
+      "properties": {
+        "addressId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressTypeCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string"
+        },
+        "unitOrAprtmntNum": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "zip": {
+          "type": "string"
+        }
+      }
+    },
+    "RateTypesVO": {
+      "type": "object",
+      "properties": {
+        "MIPremiumPaymentType": {
+          "type": "string"
+        },
+        "RateType": {
+          "type": "string"
+        },
+        "UpfrontFee": {
+          "type": "string"
+        }
+      }
+    },
+    "CommunicationPreferenceInfoVO": {
+      "type": "object",
+      "properties": {
+        "communicationPreferenceInfoId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "contactId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "email": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "ServiceStatusDTO": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "CSAgreementContactVO": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "PremiumAmountsVO": {
+      "type": "object",
+      "properties": {
+        "InitialPremiumAmount": {
+          "type": "string"
+        },
+        "MISavingsWithGNW": {
+          "type": "string"
+        },
+        "MonthlyPremiumAmount": {
+          "type": "string"
+        },
+        "TotalLoanAmount": {
+          "type": "string"
+        },
+        "TotalMIPayment5Years": {
+          "type": "string"
+        },
+        "TotalMonthlyPIMI": {
+          "type": "string"
+        },
+        "UpFrontPremiumAmount": {
+          "type": "string"
+        }
+      }
+    },
+    "ApplicationStatusVO": {
+      "type": "object",
+      "properties": {
+        "applicationStatusCode": {
+          "type": "string"
+        },
+        "statusChangeDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "QuickSubmitVO": {
+      "type": "object",
+      "properties": {
+        "affordableHousingProgramCode": {
+          "type": "string"
+        },
+        "applicationSource": {
+          "type": "string"
+        },
+        "b2bUserId": {
+          "type": "string"
+        },
+        "borrFirstName": {
+          "type": "string"
+        },
+        "borrLastName": {
+          "type": "string"
+        },
+        "borrSSN": {
+          "type": "string"
+        },
+        "commitmentNumber": {
+          "type": "string"
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MiNonDelegatedeContactVO"
+          }
+        },
+        "coverage": {
+          "type": "string"
+        },
+        "financedPremiumInd": {
+          "type": "boolean"
+        },
+        "gnwLoanNumber": {
+          "type": "string"
+        },
+        "intialRate": {
+          "type": "string"
+        },
+        "isHFALoan": {
+          "type": "boolean"
+        },
+        "lenderLoanNumber": {
+          "type": "string"
+        },
+        "nonPrimaryContacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MiNonDelegatedeContactVO"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "preApprovalInd": {
+          "type": "boolean"
+        },
+        "premiumPaymentOption": {
+          "type": "string"
+        },
+        "premiumPaymentType": {
+          "type": "string"
+        },
+        "primaryContacts": {
+          "$ref": "#/definitions/MiNonDelegatedeContactVO"
+        },
+        "refundOption": {
+          "type": "string"
+        },
+        "renewalOption": {
+          "type": "string"
+        },
+        "rushInd": {
+          "type": "boolean"
+        },
+        "rushLaneInd": {
+          "type": "boolean"
+        },
+        "saveMiInfoInd": {
+          "type": "boolean"
+        },
+        "submittingOrg": {
+          "type": "string"
+        },
+        "submittingOrgName": {
+          "type": "string"
+        }
+      }
+    },
+    "TrackingCodesVO": {
+      "type": "object",
+      "properties": {
+        "TrackingCode": {
+          "type": "string"
+        }
+      }
+    },
+    "DispositionVO": {
+      "type": "object",
+      "properties": {
+        "commitmentExpDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dispositionType": {
+          "type": "string"
+        }
+      }
+    },
+    "RateValidateRequestVO": {
+      "type": "object",
+      "properties": {
+        "deleteLinkInd": {
+          "type": "boolean"
+        },
+        "linkInd": {
+          "type": "boolean"
+        },
+        "nmlsId": {
+          "type": "string"
+        },
+        "orgId": {
+          "type": "string"
+        }
+      }
+    },
+    "CommunicationPreference": {
+      "type": "object",
+      "properties": {
+        "communicationPreferenceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "communicationTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contactId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "touchpoint": {
+          "type": "string"
+        }
+      }
+    },
+    "MessagesVO": {
+      "type": "object",
+      "properties": {
+        "Category": {
+          "type": "string"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "RuleHandle": {
+          "type": "string"
+        },
+        "ShortText": {
+          "type": "string"
+        },
+        "Text": {
+          "type": "string"
+        }
+      }
+    },
+    "ServicerAddressVO": {
+      "type": "object",
+      "properties": {
+        "addressId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressTypeCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string"
+        },
+        "unitOrAprtmntNum": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "zip": {
+          "type": "string"
+        }
+      }
+    },
+    "LoanVO": {
+      "type": "object",
+      "properties": {
+        "AUSResults": {
+          "type": "string"
+        },
+        "AffordableHousing": {
+          "type": "string"
+        },
+        "AffordableHousingPrgCode": {
+          "type": "string"
+        },
+        "BaseLoanAmount": {
+          "type": "string"
+        },
+        "BorrowerPIR": {
+          "type": "string"
+        },
+        "City": {
+          "type": "string"
+        },
+        "ConstructionToPerm": {
+          "type": "string"
+        },
+        "DocumentationType": {
+          "type": "string"
+        },
+        "FHAPIR": {
+          "type": "string"
+        },
+        "FinancedNumberUnits": {
+          "type": "string"
+        },
+        "LTVPercent": {
+          "type": "string"
+        },
+        "LenderLoanNbr": {
+          "type": "string"
+        },
+        "LenderPIR": {
+          "type": "string"
+        },
+        "LoanAmortizationTermMonths": {
+          "type": "string"
+        },
+        "LoanOriginatorIdentifier": {
+          "type": "string"
+        },
+        "LoanPurpose": {
+          "type": "string"
+        },
+        "NumberOfBorrowersCode": {
+          "type": "string"
+        },
+        "PostalCode": {
+          "type": "string"
+        },
+        "PropertyType": {
+          "type": "string"
+        },
+        "PropertyUsageType": {
+          "type": "string"
+        },
+        "State": {
+          "type": "string"
+        },
+        "StreetAddress": {
+          "type": "string"
+        },
+        "ThirdPartyOrigIndicator": {
+          "type": "string"
+        }
+      }
+    },
+    "BorrowerVO": {
+      "type": "object",
+      "properties": {
+        "BorrrowerTypeCD": {
+          "type": "string"
+        },
+        "FirstTimeHomeBuyer": {
+          "type": "string"
+        }
+      }
+    },
+    "MIRatesResponseVO": {
+      "type": "object",
+      "properties": {
+        "CalculatedDate": {
+          "type": "string"
+        },
+        "InfoMessages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InfoMessagesTypeVO"
+          }
+        },
+        "MIRatesRequest": {
+          "$ref": "#/definitions/MIRatesRequestVO"
+        },
+        "RatesResponses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RatesResponsesVO"
+          }
+        },
+        "ServiceResponseStatus": {
+          "$ref": "#/definitions/ServiceStatusTypeVO"
+        },
+        "WmMessages": {
+          "$ref": "#/definitions/WmMessagesVO"
+        },
+        "miratesRequest": {
+          "$ref": "#/definitions/MIRatesRequestVO"
+        }
+      }
+    },
+    "CSAgreementResponseVO": {
+      "type": "object",
+      "properties": {
+        "isValidMasterPolicy": {
+          "type": "boolean"
+        },
+        "referenceNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "MIDelegatedRequestVO": {
+      "type": "object",
+      "properties": {
+        "appReceivedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "appStatus": {
+          "type": "string"
+        },
+        "commitmentNumber": {
+          "type": "string"
+        },
+        "componentName": {
+          "type": "string"
+        },
+        "gnwLoanNumber": {
+          "type": "string"
+        },
+        "lenderLoanNumber": {
+          "type": "string"
+        },
+        "miDelegateReferenceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "miDelegated": {
+          "$ref": "#/definitions/MIDelegatedVO"
+        },
+        "primaryBorrowerFname": {
+          "type": "string"
+        },
+        "primaryBorrowerLname": {
+          "type": "string"
+        },
+        "primaryBorrowerSSN": {
+          "type": "string"
+        },
+        "submittingOrgId": {
+          "type": "string"
+        }
+      }
+    },
+    "ContextVO": {
+      "type": "object",
+      "properties": {
+        "AffordableHousingPrgCode": {
+          "type": "string"
+        },
+        "CombinedLTVPercent": {
+          "type": "string"
+        },
+        "DTIPercent": {
+          "type": "string"
+        },
+        "EccEligibleType": {
+          "type": "string"
+        },
+        "EligibilityDTI": {
+          "type": "string"
+        },
+        "GreenpathIndicator": {
+          "type": "string"
+        },
+        "GrossLTVPercent": {
+          "type": "string"
+        },
+        "LTAVPercent": {
+          "type": "string"
+        },
+        "LTVPercent": {
+          "type": "string"
+        },
+        "NumberOfBorrowersCode": {
+          "type": "string"
+        },
+        "OrganizationType": {
+          "type": "string"
+        },
+        "PlanTermYear": {
+          "type": "string"
+        },
+        "RatesClassID": {
+          "type": "string"
+        },
+        "TotalEligibleLiguidAssets": {
+          "type": "string"
+        },
+        "TotalLTVPercent": {
+          "type": "string"
+        },
+        "WholesaleWatchList": {
+          "type": "string"
+        }
+      }
+    },
+    "LoanOriginatorInfoVO": {
+      "type": "object",
+      "properties": {
+        "isOriginatedByBrokerOrThirdParty": {
+          "type": "boolean"
+        },
+        "originatorCompanyId": {
+          "type": "string"
+        },
+        "originatorCompanyName": {
+          "type": "string"
+        },
+        "originatorFullName": {
+          "type": "string"
+        },
+        "originatorId": {
+          "type": "string"
+        }
+      }
+    },
+    "LoginDTO": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "FindMyRepResultVO": {
+      "type": "object",
+      "properties": {
+        "operationReps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SalesRepVO"
+          }
+        },
+        "salesReps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SalesRepVO"
+          }
+        }
+      }
+    },
+    "MailingAddressVO": {
+      "type": "object",
+      "properties": {
+        "addressId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressTypeCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string"
+        },
+        "unitOrAprtmntNum": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "zip": {
+          "type": "string"
+        }
+      }
+    },
+    "CSAgreementSalesContactInfoVO": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "ssoId": {
+          "type": "string"
+        }
+      }
+    },
+    "LoanPurposeVO": {
+      "type": "object",
+      "properties": {
+        "appraisedValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isConstructionToPermanent": {
+          "type": "boolean"
+        },
+        "isRenovation": {
+          "type": "boolean"
+        },
+        "loanPurposeCode": {
+          "type": "string"
+        },
+        "occupancyTypeCode": {
+          "type": "string"
+        },
+        "propertyTypeCode": {
+          "type": "string"
+        },
+        "purchasePrice": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "PrimaryBorrowerVO": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "AgencyRelationshipVO": {
+      "type": "object",
+      "properties": {
+        "agencyName": {
+          "type": "string"
+        },
+        "agencyNumber": {
+          "type": "string"
+        },
+        "agencyOtherDesc": {
+          "type": "string"
+        },
+        "approvedInsuredInd": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "miMstrPolicyAgencyReltnId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "suspendOrTerminatedInd": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "MIInformationVO": {
+      "type": "object",
+      "properties": {
+        "affordableHousingProgramCode": {
+          "type": "string"
+        },
+        "coveragePercentage": {
+          "type": "string"
+        },
+        "initialRate": {
+          "type": "string"
+        },
+        "isFinancedPremium": {
+          "type": "boolean"
+        },
+        "isHFALoan": {
+          "type": "boolean"
+        },
+        "ltv": {
+          "type": "number",
+          "format": "double"
+        },
+        "premiumPaymentOptionCode": {
+          "type": "string"
+        },
+        "premiumPaymentTypeCode": {
+          "type": "string"
+        },
+        "rateAdjustmentVO": {
+          "$ref": "#/definitions/RateAdjustmentsVO"
+        },
+        "refundOptionCode": {
+          "type": "string"
+        },
+        "renewalOptionCode": {
+          "type": "string"
+        },
+        "representativeCreditScore": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "RateVO": {
+      "type": "object",
+      "properties": {
+        "AdverseActionIndicator": {
+          "type": "string"
+        },
+        "FirstRenewalBaseRate": {
+          "type": "string"
+        },
+        "FirstRenewalBaseTerm": {
+          "type": "string"
+        },
+        "FirstRenewalFinalRate": {
+          "type": "string"
+        },
+        "InitialMIRate": {
+          "type": "string"
+        },
+        "MIPremiumPaymentType": {
+          "type": "string"
+        },
+        "MIRateYears11Plus": {
+          "type": "string"
+        },
+        "MIRateYears2To10": {
+          "type": "string"
+        },
+        "MonthlyMIRate": {
+          "type": "string"
+        },
+        "OriginalBaseRate": {
+          "type": "string"
+        },
+        "OriginalBaseTerm": {
+          "type": "string"
+        },
+        "OriginalFinalRate": {
+          "type": "string"
+        },
+        "ProductIdentifier": {
+          "type": "string"
+        },
+        "RatePointVersion": {
+          "type": "string"
+        },
+        "RateType": {
+          "type": "string"
+        },
+        "RatecardIdentifier": {
+          "type": "string"
+        },
+        "RepresentativeState": {
+          "type": "string"
+        },
+        "SecondRenewalBaseRate": {
+          "type": "string"
+        },
+        "SecondRenewalBaseTerm": {
+          "type": "string"
+        },
+        "SecondRenewalFinalRate": {
+          "type": "string"
+        },
+        "UpfrontMIRate": {
+          "type": "string"
+        }
+      }
+    },
+    "ConstraintsVO": {
+      "type": "object",
+      "properties": {
+        "CoveragePercent": {
+          "type": "string"
+        },
+        "LoanType": {
+          "type": "string"
+        },
+        "MaxAmortizationTerm": {
+          "type": "string"
+        },
+        "MaxCreditScore": {
+          "type": "string"
+        },
+        "MaxLTVPercent": {
+          "type": "string"
+        },
+        "MinAmortizationTerm": {
+          "type": "string"
+        },
+        "MinCreditScore": {
+          "type": "string"
+        },
+        "MinLTVPercent": {
+          "type": "string"
+        },
+        "RateType": {
+          "type": "string"
+        },
+        "RefundableType": {
+          "type": "string"
+        }
+      }
+    },
+    "RateValidateResponseVO": {
+      "type": "object",
+      "properties": {
+        "institutionName": {
+          "type": "string"
+        },
+        "nmlsId": {
+          "type": "string"
+        },
+        "nonProfileOrgIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerDetailsVO"
+          }
+        },
+        "orgId": {
+          "type": "string"
+        },
+        "personName": {
+          "type": "string"
+        },
+        "profileOrgIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerDetailsVO"
+          }
+        },
+        "riskBasedInd": {
+          "type": "string"
+        },
+        "status": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ContactVO": {
+      "type": "object",
+      "properties": {
+        "contactType": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "displayOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "isContactPrimary": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "miMasterPolicyContactId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "TaxVO": {
+      "type": "object",
+      "properties": {
+        "CountyAmt": {
+          "type": "string"
+        },
+        "CountyRate": {
+          "type": "string"
+        },
+        "InitialPremiumAmountWithTaxes": {
+          "type": "string"
+        },
+        "InitialPremiumRateWithTaxes": {
+          "type": "string"
+        },
+        "InitialPremiumTaxAmount": {
+          "type": "string"
+        },
+        "MatchCode": {
+          "type": "string"
+        },
+        "MonthlyPremiumAmountWithTaxes": {
+          "type": "string"
+        },
+        "MonthlyPremiumRateWithTaxes": {
+          "type": "string"
+        },
+        "MonthlyPremiumTaxAmount": {
+          "type": "string"
+        },
+        "MunicipalAmount": {
+          "type": "string"
+        },
+        "MunicipalRate": {
+          "type": "string"
+        },
+        "SurChargeAmount": {
+          "type": "string"
+        },
+        "SurChargeRate": {
+          "type": "string"
+        },
+        "TotalTaxRate": {
+          "type": "string"
+        },
+        "UpfrontPremiumAmountWithTaxes": {
+          "type": "string"
+        },
+        "UpfrontPremiumRateWithTaxes": {
+          "type": "string"
+        },
+        "UpfrontPremiumTaxAmount": {
+          "type": "string"
+        }
+      }
+    },
+    "RateAdjustmentsVO": {
+      "type": "object",
+      "properties": {
+        "otherProgramCodeText": {
+          "type": "string"
+        },
+        "rateAdjustmentCode": {
+          "type": "string"
+        }
+      }
+    },
+    "StateVO": {
+      "type": "object",
+      "properties": {
+        "stateCode": {
+          "type": "string"
+        },
+        "stateName": {
+          "type": "string"
+        }
+      }
+    },
+    "InfoMessagesTypeVO": {
+      "type": "object",
+      "properties": {
+        "InfoMessage": {
+          "type": "string"
+        },
+        "InfoType": {
+          "type": "string"
+        }
+      }
+    },
+    "WmMessagesVO": {
+      "type": "object",
+      "properties": {
+        "wmmessage": {
+          "type": "string"
+        },
+        "wmstatus": {
+          "type": "string"
+        }
+      }
+    },
+    "CSAgreementOrgInfoVO": {
+      "type": "object",
+      "properties": {
+        "orgAddress": {
+          "$ref": "#/definitions/AddressVO"
+        },
+        "orgName": {
+          "type": "string"
+        }
+      }
+    },
+    "MasterPolicyRequestVO": {
+      "type": "object",
+      "properties": {
+        "agencyRelationships": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AgencyRelationshipVO"
+          }
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactVO"
+          }
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mailingSameAsOrgAddressInd": {
+          "type": "string"
+        },
+        "miMasterPolicyRequestId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orgInfo": {
+          "$ref": "#/definitions/OrgInfoVO"
+        },
+        "requestType": {
+          "type": "string"
+        },
+        "requester": {
+          "$ref": "#/definitions/RequesterVO"
+        },
+        "salesforceCaseId": {
+          "type": "string"
+        },
+        "servicerSameAsMailingAddressInd": {
+          "type": "string"
+        },
+        "servicerSameAsOrgAddressInd": {
+          "type": "string"
+        },
+        "submissionStatus": {
+          "type": "string"
+        },
+        "submissionTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationSuspensionReasonForAgency": {
+          "type": "string"
+        },
+        "termsAcceptedInd": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "validFromTs": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "MIRatesRequestVO": {
+      "type": "object",
+      "properties": {
+        "Borrower": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BorrowerVO"
+          }
+        },
+        "EffectiveDate": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Inquiry_Indicator": {
+          "type": "string"
+        },
+        "Loan": {
+          "$ref": "#/definitions/LoanVO"
+        },
+        "MI": {
+          "$ref": "#/definitions/MIVO"
+        },
+        "MetaData": {
+          "$ref": "#/definitions/MetaDataVO"
+        },
+        "OrgID": {
+          "type": "string"
+        },
+        "RateTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RateTypesVO"
+          }
+        },
+        "ScenarioId": {
+          "type": "string"
+        }
+      }
+    },
+    "CapsDataVO": {
+      "type": "object",
+      "properties": {
+        "delegatedOrgInd": {
+          "type": "boolean"
+        },
+        "enhancedTurnTimeInd": {
+          "type": "boolean"
+        },
+        "orgCity": {
+          "type": "string"
+        },
+        "orgId": {
+          "type": "string"
+        },
+        "orgName": {
+          "type": "string"
+        },
+        "rushOrgInd": {
+          "type": "boolean"
+        },
+        "sla": {
+          "type": "string"
+        }
+      }
+    },
+    "RequesterVO": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "MIRatesRequestWrapperVO": {
+      "type": "object",
+      "properties": {
+        "MIRatesRequest": {
+          "$ref": "#/definitions/MIRatesRequestVO"
+        }
+      }
+    },
+    "QuoteSearchResultsVO": {
+      "type": "object",
+      "properties": {
+        "invalidEmailInd": {
+          "type": "boolean"
+        },
+        "invalidNmlsIdInd": {
+          "type": "boolean"
+        },
+        "lenderLoanNumber": {
+          "type": "string"
+        },
+        "orgId": {
+          "type": "string"
+        },
+        "quoteId": {
+          "type": "string"
+        },
+        "requestDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "MIVO": {
+      "type": "object",
+      "properties": {
+        "FinanceMIPayment": {
+          "type": "string"
+        },
+        "GNWDTI": {
+          "type": "string"
+        },
+        "MICoveragePercent": {
+          "type": "string"
+        },
+        "MILoanCreditScore": {
+          "type": "string"
+        },
+        "MIRelocIndicator": {
+          "type": "string"
+        },
+        "MIRenewCalcType": {
+          "type": "string"
+        },
+        "RateProgramCode": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RatesLoanType": {
+          "type": "string"
+        }
+      }
+    },
+    "DuplicateApplicationVO": {
+      "type": "object",
+      "properties": {
+        "commitmentNumber": {
+          "type": "string"
+        },
+        "genieApplicationId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "gnwLoanNumber": {
+          "type": "string"
+        },
+        "lenderLoanNumber": {
+          "type": "string"
+        },
+        "orgId": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerDetailsVO": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "orgId": {
+          "type": "string"
+        },
+        "orgName": {
+          "type": "string"
+        }
+      }
+    },
+    "MiNonDelegatedeContactVO": {
+      "type": "object",
+      "properties": {
+        "communicationPreferenceInfo": {
+          "$ref": "#/definitions/CommunicationPreferenceInfoVO"
+        },
+        "communicationPreferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommunicationPreference"
+          }
+        },
+        "contactId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "isPrimary": {
+          "type": "boolean"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "orgid": {
+          "type": "string"
+        }
+      }
+    },
+    "RatesResponsesVO": {
+      "type": "object",
+      "properties": {
+        "Constraints": {
+          "$ref": "#/definitions/ConstraintsVO"
+        },
+        "Context": {
+          "$ref": "#/definitions/ContextVO"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MessagesVO"
+          }
+        },
+        "PremiumAmounts": {
+          "$ref": "#/definitions/PremiumAmountsVO"
+        },
+        "Rate": {
+          "$ref": "#/definitions/RateVO"
+        },
+        "RequestIdentifier": {
+          "type": "string"
+        },
+        "Tax": {
+          "$ref": "#/definitions/TaxVO"
+        },
+        "TrackingCodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TrackingCodesVO"
+          }
+        }
+      }
+    },
+    "AUSInformationVO": {
+      "type": "object",
+      "properties": {
+        "docTypeCode": {
+          "type": "string"
+        },
+        "duRecommendationCode": {
+          "type": "string"
+        },
+        "lpEligibilityCode": {
+          "type": "string"
+        },
+        "riskClassCode": {
+          "type": "string"
+        },
+        "underwritingTypeCode": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
