@@ -1,20 +1,20 @@
 {
-    "./samples/output.txt": {
+    "./samples/outputs/swagger.ts": {
         "source": {
-            "file": "./samples/swagger.json"
+            "file": "./samples/sources/swagger.json"
         }
     },
-    "./samples/output2.txt": {
+    "./samples/outputs/swagger2.ts": {
         "source": {
-            "file": "./samples/swagger2.json"
+            "file": "./samples/sources/swagger2.json"
         }
     },
-    "./samples/output3.txt": {
+    "./samples/outputs/swagger3.ts": {
         "source": {
-            "file": "./samples/swagger3.json"
+            "file": "./samples/sources/swagger3.json"
         }
     },
-    "./samples/http-output.json": {
+    "./samples/outputs/petstore.ts": {
         "source": {
             "url": "http://petstore.swagger.io/v2/swagger.json"
         }

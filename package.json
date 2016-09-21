@@ -1,6 +1,6 @@
 {
-  "name": "swagger-code-generator",
-  "version": "0.0.7",
+  "name": "@swagen/cli",
+  "version": "0.0.1",
   "description": "Client code generator for Swagger JSON",
   "main": "cli.js",
   "scripts": {
