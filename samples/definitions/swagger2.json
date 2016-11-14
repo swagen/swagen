@@ -1,0 +1,3735 @@
+{
+    "models": {
+        "QuoteSearchParamVO": {
+            "emailId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "nmlsId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "OrgAddressVO": {
+            "addressId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "addressLine1": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressLine2": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "city": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "state": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "unitOrAprtmntNum": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "zip": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "LoanBorrowerVO": {
+            "addresses": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "AddressVO"
+            },
+            "borrowerTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "creditScore": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "ethnicityCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "genderCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "isFirstTimeBuyer": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "isSelfEmployed": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "monthlyIncome": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "noCreditScoreReasonCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "raceCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "ssn": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "willOccupySubjectProperty": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            }
+        },
+        "CityPostalVO": {
+            "city": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "state": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "stateCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "zip": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MIDelegatedFileUploadResponseVO": {
+            "errorCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "errorDesc": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "miDelegatedVO": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIDelegatedVO"
+            },
+            "status": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MIDelegatedVO": {
+            "assetInfo": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "AssetInfoVO"
+            },
+            "ausInfo": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "AUSInformationVO"
+            },
+            "borrowers": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "LoanBorrowerVO"
+            },
+            "isDUFileUpload": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "loanOriginatorInfo": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "LoanOriginatorInfoVO"
+            },
+            "loanPurpose": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "LoanPurposeVO"
+            },
+            "loanTerm": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "LoanTermsVO"
+            },
+            "miInfo": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIInformationVO"
+            },
+            "subjectPropertyAddress": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "AddressVO"
+            }
+        },
+        "ServiceStatusTypeVO": {
+            "Category": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Code": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Description": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "SalesRepVO": {
+            "emailAddress": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "linkedInProfile": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "personalMessage": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "primaryPhoneNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "salesRepId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "secondaryPhoneNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "title": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "AssetInfoVO": {
+            "dtiPercentage": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "giftFund": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "isPledgedAsset": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "pledgedShares": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "retirementFunds": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "subLiquidAsset": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            }
+        },
+        "CSAgreementRequestVO": {
+            "businessChannels": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "contact": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "CSAgreementContactVO"
+            },
+            "hfaInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "locationTypes": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "masterPolicy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "notes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgInfo": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "CSAgreementOrgInfoVO"
+            },
+            "requesterEmail": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "salesContacts": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "CSAgreementSalesContactInfoVO"
+            },
+            "submissionTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "submitMoreLoansInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "webRequestId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            }
+        },
+        "MultipartFile": {},
+        "MIRatesResponseWrapperVO": {
+            "MIRatesResponse": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIRatesResponseVO"
+            }
+        },
+        "B2BPipelineVO": {
+            "b2bPipelineApplications": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "ApplicationDetailVO"
+            }
+        },
+        "ValidationResponseDTO": {
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "loginValidation": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "redirectionurl": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "username": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MetaDataVO": {
+            "Operation_Source": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Operation_Type": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MasterPolicyNotesVO": {
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "miMasterPolicyNotesId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "miMasterPolicyRequestId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "notes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "notesCancelledInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            }
+        },
+        "LoanTermsVO": {
+            "amortizationMonths": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "armTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "documentTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "freqOfFirstAdjust": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "interestOnlyPeriod": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "interestRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "isBalloon": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "isBiweekly": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "isInterestOnly": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "isNegativeAmortization": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "lenderLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "loanAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "loanTermMonths": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "loanTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "monthsTillFirstAdjust": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "orgCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "referenceNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "subordinateFinanceAmt": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            }
+        },
+        "MasterPolicyResponseVO": {
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "displayPage": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "isValidMasterPolicy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "masterPolicyRequestVO": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MasterPolicyRequestVO"
+            },
+            "referenceNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "status": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            }
+        },
+        "OrgInfoVO": {
+            "businessChannels": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "closeLoansInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "mailingAddress": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MailingAddressVO"
+            },
+            "miMasterPolicyOrgInfoId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "nmlsId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgAddress": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "OrgAddressVO"
+            },
+            "orgClassification": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgEstablished": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgWebsite": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "partnershipTypes": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "servicerAddress": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "ServicerAddressVO"
+            },
+            "undwriteLoansInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            }
+        },
+        "ApplicationDetailVO": {
+            "appCreatedDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "appSource": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "appStatus": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "appStatusOrderIndex": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "borrower": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "PrimaryBorrowerVO"
+            },
+            "currentDisposition": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "DispositionVO"
+            },
+            "gnwLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "isLocked": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "isRushLane": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "lenderLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "locationType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "perfectedInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "referenceNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "rushInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "sla": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "statusHistory": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "ApplicationStatusVO"
+            },
+            "submittingOrgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "submittingOrgName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            }
+        },
+        "AddressVO": {
+            "addressId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "addressLine1": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressLine2": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "city": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "state": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "unitOrAprtmntNum": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "zip": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "RateTypesVO": {
+            "MIPremiumPaymentType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RateType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "UpfrontFee": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "CommunicationPreferenceInfoVO": {
+            "communicationPreferenceInfoId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "contactId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "extension": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "fax": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "phone": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "ServiceStatusDTO": {
+            "status": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "CSAgreementContactVO": {
+            "email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "fax": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "phone": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "PremiumAmountsVO": {
+            "InitialPremiumAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MISavingsWithGNW": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MonthlyPremiumAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "TotalLoanAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "TotalMIPayment5Years": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "TotalMonthlyPIMI": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "UpFrontPremiumAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "ApplicationStatusVO": {
+            "applicationStatusCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "statusChangeDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            }
+        },
+        "QuickSubmitVO": {
+            "affordableHousingProgramCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "applicationSource": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "b2bUserId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "borrFirstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "borrLastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "borrSSN": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "commitmentNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "contacts": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "MiNonDelegatedeContactVO"
+            },
+            "coverage": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "financedPremiumInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "gnwLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "intialRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "isHFALoan": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "lenderLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "nonPrimaryContacts": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "MiNonDelegatedeContactVO"
+            },
+            "notes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "preApprovalInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "premiumPaymentOption": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "premiumPaymentType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "primaryContacts": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MiNonDelegatedeContactVO"
+            },
+            "refundOption": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "renewalOption": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "rushInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "rushLaneInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "saveMiInfoInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "submittingOrg": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "submittingOrgName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "TrackingCodesVO": {
+            "TrackingCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "DispositionVO": {
+            "commitmentExpDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "dispositionType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "RateValidateRequestVO": {
+            "deleteLinkInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "linkInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "nmlsId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "CommunicationPreference": {
+            "communicationPreferenceId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "communicationTypes": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "contactId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "touchpoint": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MessagesVO": {
+            "Category": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Code": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RuleHandle": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "ShortText": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Text": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "ServicerAddressVO": {
+            "addressId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "addressLine1": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressLine2": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "city": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "state": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "unitOrAprtmntNum": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "zip": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "LoanVO": {
+            "AUSResults": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "AffordableHousing": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "AffordableHousingPrgCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "BaseLoanAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "BorrowerPIR": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "City": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "ConstructionToPerm": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "DocumentationType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "FHAPIR": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "FinancedNumberUnits": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LTVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LenderLoanNbr": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LenderPIR": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LoanAmortizationTermMonths": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LoanOriginatorIdentifier": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LoanPurpose": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "NumberOfBorrowersCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "PostalCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "PropertyType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "PropertyUsageType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "State": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "StreetAddress": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "ThirdPartyOrigIndicator": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "BorrowerVO": {
+            "BorrrowerTypeCD": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "FirstTimeHomeBuyer": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MIRatesResponseVO": {
+            "CalculatedDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "InfoMessages": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "InfoMessagesTypeVO"
+            },
+            "MIRatesRequest": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIRatesRequestVO"
+            },
+            "RatesResponses": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "RatesResponsesVO"
+            },
+            "ServiceResponseStatus": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "ServiceStatusTypeVO"
+            },
+            "WmMessages": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "WmMessagesVO"
+            },
+            "miratesRequest": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIRatesRequestVO"
+            }
+        },
+        "CSAgreementResponseVO": {
+            "isValidMasterPolicy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "referenceNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MIDelegatedRequestVO": {
+            "appReceivedDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "appStatus": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "commitmentNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "componentName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "gnwLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lenderLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "miDelegateReferenceId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "miDelegated": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIDelegatedVO"
+            },
+            "primaryBorrowerFname": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "primaryBorrowerLname": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "primaryBorrowerSSN": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "submittingOrgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "ContextVO": {
+            "AffordableHousingPrgCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "CombinedLTVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "DTIPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "EccEligibleType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "EligibilityDTI": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "GreenpathIndicator": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "GrossLTVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LTAVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LTVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "NumberOfBorrowersCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "OrganizationType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "PlanTermYear": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RatesClassID": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "TotalEligibleLiguidAssets": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "TotalLTVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "WholesaleWatchList": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "LoanOriginatorInfoVO": {
+            "isOriginatedByBrokerOrThirdParty": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "originatorCompanyId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "originatorCompanyName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "originatorFullName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "originatorId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "LoginDTO": {
+            "password": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "username": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "FindMyRepResultVO": {
+            "operationReps": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "SalesRepVO"
+            },
+            "salesReps": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "SalesRepVO"
+            }
+        },
+        "MailingAddressVO": {
+            "addressId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "addressLine1": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressLine2": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "addressTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "city": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "state": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "unitOrAprtmntNum": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "zip": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "CSAgreementSalesContactInfoVO": {
+            "email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "ssoId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "LoanPurposeVO": {
+            "appraisedValue": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "isConstructionToPermanent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "isRenovation": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "loanPurposeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "occupancyTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "propertyTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "purchasePrice": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            }
+        },
+        "PrimaryBorrowerVO": {
+            "email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "AgencyRelationshipVO": {
+            "agencyName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "agencyNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "agencyOtherDesc": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "approvedInsuredInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "miMstrPolicyAgencyReltnId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "suspendOrTerminatedInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            }
+        },
+        "MIInformationVO": {
+            "affordableHousingProgramCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "coveragePercentage": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "initialRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "isFinancedPremium": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "isHFALoan": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "ltv": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            },
+            "premiumPaymentOptionCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "premiumPaymentTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "rateAdjustmentVO": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "RateAdjustmentsVO"
+            },
+            "refundOptionCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "renewalOptionCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "representativeCreditScore": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            }
+        },
+        "RateVO": {
+            "AdverseActionIndicator": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "FirstRenewalBaseRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "FirstRenewalBaseTerm": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "FirstRenewalFinalRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "InitialMIRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MIPremiumPaymentType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MIRateYears11Plus": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MIRateYears2To10": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MonthlyMIRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "OriginalBaseRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "OriginalBaseTerm": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "OriginalFinalRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "ProductIdentifier": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RatePointVersion": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RateType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RatecardIdentifier": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RepresentativeState": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "SecondRenewalBaseRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "SecondRenewalBaseTerm": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "SecondRenewalFinalRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "UpfrontMIRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "ConstraintsVO": {
+            "CoveragePercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "LoanType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MaxAmortizationTerm": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MaxCreditScore": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MaxLTVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MinAmortizationTerm": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MinCreditScore": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MinLTVPercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RateType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RefundableType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "RateValidateResponseVO": {
+            "institutionName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "nmlsId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "nonProfileOrgIds": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "CustomerDetailsVO"
+            },
+            "orgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "personName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "profileOrgIds": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "CustomerDetailsVO"
+            },
+            "riskBasedInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "status": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "ContactVO": {
+            "contactType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "displayOrder": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "isContactPrimary": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "miMasterPolicyContactId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "phone": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "title": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            }
+        },
+        "TaxVO": {
+            "CountyAmt": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "CountyRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "InitialPremiumAmountWithTaxes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "InitialPremiumRateWithTaxes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "InitialPremiumTaxAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MatchCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MonthlyPremiumAmountWithTaxes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MonthlyPremiumRateWithTaxes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MonthlyPremiumTaxAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MunicipalAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MunicipalRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "SurChargeAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "SurChargeRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "TotalTaxRate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "UpfrontPremiumAmountWithTaxes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "UpfrontPremiumRateWithTaxes": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "UpfrontPremiumTaxAmount": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "RateAdjustmentsVO": {
+            "otherProgramCodeText": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "rateAdjustmentCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "StateVO": {
+            "stateCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "stateName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "InfoMessagesTypeVO": {
+            "InfoMessage": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "InfoType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "WmMessagesVO": {
+            "wmmessage": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "wmstatus": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "CSAgreementOrgInfoVO": {
+            "orgAddress": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "AddressVO"
+            },
+            "orgName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MasterPolicyRequestVO": {
+            "agencyRelationships": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "AgencyRelationshipVO"
+            },
+            "contacts": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "ContactVO"
+            },
+            "createdBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "createdTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "mailingSameAsOrgAddressInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "miMasterPolicyRequestId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "notes": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgInfo": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "OrgInfoVO"
+            },
+            "requestType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "requester": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "RequesterVO"
+            },
+            "salesforceCaseId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "servicerSameAsMailingAddressInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "servicerSameAsOrgAddressInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "submissionStatus": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "submissionTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "terminationSuspensionReasonForAgency": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "termsAcceptedInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedBy": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "updatedTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "validFromTs": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "version": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            }
+        },
+        "MIRatesRequestVO": {
+            "Borrower": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "BorrowerVO"
+            },
+            "EffectiveDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Inquiry_Indicator": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Loan": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "LoanVO"
+            },
+            "MI": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIVO"
+            },
+            "MetaData": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MetaDataVO"
+            },
+            "OrgID": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RateTypes": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "RateTypesVO"
+            },
+            "ScenarioId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "CapsDataVO": {
+            "delegatedOrgInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "enhancedTurnTimeInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "orgCity": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "rushOrgInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "sla": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "RequesterVO": {
+            "email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "phoneNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MIRatesRequestWrapperVO": {
+            "MIRatesRequest": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "MIRatesRequestVO"
+            }
+        },
+        "QuoteSearchResultsVO": {
+            "invalidEmailInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "invalidNmlsIdInd": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "lenderLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "quoteId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "requestDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            }
+        },
+        "MIVO": {
+            "FinanceMIPayment": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "GNWDTI": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MICoveragePercent": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MILoanCreditScore": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MIRelocIndicator": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "MIRenewCalcType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RateProgramCode": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "RatesLoanType": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "DuplicateApplicationVO": {
+            "commitmentNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "genieApplicationId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "gnwLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lenderLoanNumber": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "CustomerDetailsVO": {
+            "city": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "MiNonDelegatedeContactVO": {
+            "communicationPreferenceInfo": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "CommunicationPreferenceInfoVO"
+            },
+            "communicationPreferences": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "CommunicationPreference"
+            },
+            "contactId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "isPrimary": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "orgid": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "RatesResponsesVO": {
+            "Constraints": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "ConstraintsVO"
+            },
+            "Context": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "ContextVO"
+            },
+            "Message": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Messages": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "MessagesVO"
+            },
+            "PremiumAmounts": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "PremiumAmountsVO"
+            },
+            "Rate": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "RateVO"
+            },
+            "RequestIdentifier": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "Tax": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "TaxVO"
+            },
+            "TrackingCodes": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "TrackingCodesVO"
+            }
+        },
+        "AUSInformationVO": {
+            "docTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "duRecommendationCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lpEligibilityCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "riskClassCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "underwritingTypeCode": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        }
+    },
+    "services": {
+        "b-2-b-application-resource": {
+            "processApplicationDecisionPdfUsingGET": {
+                "description": "processApplicationDecisionPdf",
+                "path": "/b2b/application/decisionpdf/{dispositionType}/{commitmentNumber}/{gnwLoanNumber}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "dispositionType",
+                        "type": "path",
+                        "description": "dispositionType",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "commitmentNumber",
+                        "type": "path",
+                        "description": "commitmentNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "gnwLoanNumber",
+                        "type": "path",
+                        "description": "gnwLoanNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "primitive",
+                            "type": "string",
+                            "subType": "byte"
+                        }
+                    }
+                }
+            },
+            "processQuickSubmitApplicationUsingPOST": {
+                "description": "processQuickSubmitApplication",
+                "path": "/b2b/application/quicksubmit",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "quickSubmitVO",
+                        "type": "body",
+                        "description": "quickSubmitVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "QuickSubmitVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "QuickSubmitVO"
+                        }
+                    }
+                }
+            },
+            "getCapsDataUsingGET": {
+                "description": "getCapsData",
+                "path": "/b2b/application/quicksubmit/caps/{orgId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "orgId",
+                        "type": "path",
+                        "description": "orgId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "CapsDataVO"
+                        }
+                    }
+                }
+            },
+            "getDuplicateApplicationForOrgAndLenderLoanNumberUsingGET": {
+                "description": "getDuplicateApplicationForOrgAndLenderLoanNumber",
+                "path": "/b2b/application/quicksubmit/duplicate/{orgId}/{lenderLoanNumber}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "orgId",
+                        "type": "path",
+                        "description": "orgId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lenderLoanNumber",
+                        "type": "path",
+                        "description": "lenderLoanNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "DuplicateApplicationVO"
+                        }
+                    }
+                }
+            },
+            "lockApplicationUsingPOST": {
+                "description": "lockApplication",
+                "path": "/b2b/application/{commitmentNumber}/lock",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "commitmentNumber",
+                        "type": "path",
+                        "description": "commitmentNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "type": "query",
+                        "description": "userId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "ServiceStatusDTO"
+                        }
+                    }
+                }
+            },
+            "unlockApplicationUsingPOST": {
+                "description": "unlockApplication",
+                "path": "/b2b/application/{commitmentNumber}/unlock",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "commitmentNumber",
+                        "type": "path",
+                        "description": "commitmentNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "ServiceStatusDTO"
+                        }
+                    }
+                }
+            },
+            "getPipelineApplicationsUsingGET": {
+                "description": "getPipelineApplications",
+                "path": "/b2b/application/{orgid}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "orgid",
+                        "type": "path",
+                        "description": "orgid",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userid",
+                        "type": "query",
+                        "description": "userid",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "B2BPipelineVO"
+                        }
+                    }
+                }
+            },
+            "getPipelineApplicationUsingGET": {
+                "description": "getPipelineApplication",
+                "path": "/b2b/application/{source}/{referenceId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "source",
+                        "type": "path",
+                        "description": "source",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "referenceId",
+                        "type": "path",
+                        "description": "referenceId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "ApplicationDetailVO"
+                        }
+                    }
+                }
+            }
+        },
+        "city-address-resource": {
+            "getAllUSStatesUsingGET": {
+                "description": "getAllUSStates",
+                "path": "/b2b/application/postal/usa/states",
+                "verb": "get",
+                "parameters": [],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "StateVO"
+                        }
+                    }
+                }
+            },
+            "getCityStateFromZipUsingGET": {
+                "description": "getCityStateFromZip",
+                "path": "/b2b/application/postal/{zipCode}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "zipCode",
+                        "type": "path",
+                        "description": "zipCode",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "CityPostalVO"
+                        }
+                    }
+                }
+            }
+        },
+        "contract-service-agreement-resource": {
+            "checkForMasterPolicyUsingGET": {
+                "description": "checkForMasterPolicy",
+                "path": "/csagreement/isvalid",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "type": "query",
+                        "description": "email",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "orgId",
+                        "type": "query",
+                        "description": "orgId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "CSAgreementResponseVO"
+                        }
+                    }
+                }
+            },
+            "submitCSAgreemnetRequestUsingPOST": {
+                "description": "submitCSAgreemnetRequest",
+                "path": "/csagreement/submit",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "description": "request",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "CSAgreementRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "CSAgreementResponseVO"
+                        }
+                    }
+                }
+            }
+        },
+        "login-resource": {
+            "loginUsingPOST": {
+                "description": "login",
+                "path": "/login/request",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "loginDto",
+                        "type": "body",
+                        "description": "loginDto",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "LoginDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "ValidationResponseDTO"
+                        }
+                    }
+                }
+            }
+        },
+        "master-policy-request-resource": {
+            "sendMasterPolicyCompletionEmailUsingGET": {
+                "description": "sendMasterPolicyCompletionEmail",
+                "path": "/masterpolicy/completionEmail/{requesterEmail}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "requesterEmail",
+                        "type": "path",
+                        "description": "requesterEmail",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MasterPolicyResponseVO"
+                        }
+                    }
+                }
+            },
+            "checkForMasterPolicyValidityUsingGET": {
+                "description": "checkForMasterPolicyValidity",
+                "path": "/masterpolicy/isvalid/{mpRequestNo}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "mpRequestNo",
+                        "type": "path",
+                        "description": "mpRequestNo",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MasterPolicyResponseVO"
+                        }
+                    }
+                }
+            },
+            "saveMasterPolicyNotesUsingPOST": {
+                "description": "saveMasterPolicyNotes",
+                "path": "/masterpolicy/notes",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "masterPolicyNotesVO",
+                        "type": "body",
+                        "description": "masterPolicyNotesVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MasterPolicyNotesVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MasterPolicyResponseVO"
+                        }
+                    }
+                }
+            },
+            "createMasterPolicyUsingPOST": {
+                "description": "createMasterPolicy",
+                "path": "/masterpolicy/save",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "masterPolicyVO",
+                        "type": "body",
+                        "description": "masterPolicyVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MasterPolicyRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MasterPolicyRequestVO"
+                        }
+                    }
+                }
+            },
+            "retrieveMasterPolicyUsingGET": {
+                "description": "retrieveMasterPolicy",
+                "path": "/masterpolicy/{mpRequestNo}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "mpRequestNo",
+                        "type": "path",
+                        "description": "mpRequestNo",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MasterPolicyRequestVO"
+                        }
+                    }
+                }
+            }
+        },
+        "mi-delegated-resource": {
+            "processDUFileUploadUsingPOST": {
+                "description": "processDUFileUpload",
+                "path": "/midelegated/du/upload",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "duFile",
+                        "type": "formData",
+                        "description": "duFile",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "file"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MIDelegatedFileUploadResponseVO"
+                        }
+                    }
+                }
+            },
+            "saveMiDelegatedUsingPOST": {
+                "description": "saveMiDelegated",
+                "path": "/midelegated/save",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "mIDelegatedRequestVO",
+                        "type": "body",
+                        "description": "mIDelegatedRequestVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MIDelegatedRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MIDelegatedRequestVO"
+                        }
+                    }
+                }
+            }
+        },
+        "rate-express-resource": {
+            "getQuoteUsingPOST": {
+                "description": "getQuote",
+                "path": "/rate/getquote",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "miRatesRequestWrapper",
+                        "type": "body",
+                        "description": "miRatesRequestWrapper",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MIRatesRequestWrapperVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MIRatesResponseWrapperVO"
+                        }
+                    }
+                }
+            },
+            "validateAndUpdateNmlsOrgAssociationUsingPOST": {
+                "description": "validateAndUpdateNmlsOrgAssociation",
+                "path": "/rate/identify",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "rateValidateRequestVO",
+                        "type": "body",
+                        "description": "rateValidateRequestVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "RateValidateRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "RateValidateResponseVO"
+                        }
+                    }
+                }
+            },
+            "searchQuotesUsingPOST": {
+                "description": "searchQuotes",
+                "path": "/rate/quote/search",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "quoteSearchParamVO",
+                        "type": "body",
+                        "description": "quoteSearchParamVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "QuoteSearchParamVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "QuoteSearchResultsVO"
+                        }
+                    }
+                }
+            },
+            "searchQuoteByIdUsingGET": {
+                "description": "searchQuoteById",
+                "path": "/rate/quote/search/{quoteId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "quoteId",
+                        "type": "path",
+                        "description": "quoteId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "MIRatesResponseWrapperVO"
+                        }
+                    }
+                }
+            }
+        },
+        "find-my-rep-resource": {
+            "findRepByIdUsingGET": {
+                "description": "findRepById",
+                "path": "/reps",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "query",
+                        "description": "id",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "SalesRepVO"
+                        }
+                    }
+                }
+            },
+            "findMyRepsUsingGET": {
+                "description": "findMyReps",
+                "path": "/reps/search",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "state",
+                        "type": "query",
+                        "description": "state",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "zipcode",
+                        "type": "query",
+                        "description": "zipcode",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "type": "query",
+                        "description": "name",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fetch",
+                        "type": "query",
+                        "description": "fetch",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "FindMyRepResultVO"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -39,3 +39,5 @@ jspm_packages
 # IDE's
 .vscode
 .settings
+
+samples/outputs

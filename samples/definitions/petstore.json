@@ -1,0 +1,679 @@
+{
+    "models": {
+        "Order": {
+            "id": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "petId": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "quantity": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "shipDate": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string",
+                "subType": "date-time"
+            },
+            "status": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "complete": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "boolean"
+            }
+        },
+        "Category": {
+            "id": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "name": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "User": {
+            "id": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "username": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "firstName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "email": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "password": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "phone": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "userStatus": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            }
+        },
+        "Tag": {
+            "id": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "name": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "Pet": {
+            "id": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int64"
+            },
+            "category": {
+                "isArray": false,
+                "kind": "complex",
+                "type": "Category"
+            },
+            "name": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "photoUrls": {
+                "isArray": true,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "tags": {
+                "isArray": true,
+                "kind": "complex",
+                "type": "Tag"
+            },
+            "status": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        },
+        "ApiResponse": {
+            "code": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "type": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "message": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            }
+        }
+    },
+    "services": {
+        "pet": {
+            "addPet": {
+                "description": "Add a new pet to the store",
+                "path": "/pet",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "type": "body",
+                        "description": "Pet object that needs to be added to the store",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "Pet"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "updatePet": {
+                "description": "Update an existing pet",
+                "path": "/pet",
+                "verb": "put",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "type": "body",
+                        "description": "Pet object that needs to be added to the store",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "Pet"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "findPetsByStatus": {
+                "description": "Finds Pets by status",
+                "path": "/pet/findByStatus",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "type": "query",
+                        "description": "Status values that need to be considered for filter",
+                        "required": true,
+                        "dataType": {
+                            "isArray": true,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "Pet"
+                        }
+                    }
+                }
+            },
+            "findPetsByTags": {
+                "description": "Finds Pets by tags",
+                "path": "/pet/findByTags",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "tags",
+                        "type": "query",
+                        "description": "Tags to filter by",
+                        "required": true,
+                        "dataType": {
+                            "isArray": true,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "Pet"
+                        }
+                    }
+                }
+            },
+            "getPetById": {
+                "description": "Find pet by ID",
+                "path": "/pet/{petId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "petId",
+                        "type": "path",
+                        "description": "ID of pet to return",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "Pet"
+                        }
+                    }
+                }
+            },
+            "updatePetWithForm": {
+                "description": "Updates a pet in the store with form data",
+                "path": "/pet/{petId}",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "petId",
+                        "type": "path",
+                        "description": "ID of pet that needs to be updated",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "type": "formData",
+                        "description": "Updated name of the pet",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "type": "formData",
+                        "description": "Updated status of the pet",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "deletePet": {
+                "description": "Deletes a pet",
+                "path": "/pet/{petId}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "type": "header",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "petId",
+                        "type": "path",
+                        "description": "Pet id to delete",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "uploadFile": {
+                "description": "uploads an image",
+                "path": "/pet/{petId}/uploadImage",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "petId",
+                        "type": "path",
+                        "description": "ID of pet to update",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    },
+                    {
+                        "name": "additionalMetadata",
+                        "type": "formData",
+                        "description": "Additional data to pass to server",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "file",
+                        "type": "formData",
+                        "description": "file to upload",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "file"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "store": {
+            "getInventory": {
+                "description": "Returns pet inventories by status",
+                "path": "/store/inventory",
+                "verb": "get",
+                "parameters": [],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "placeOrder": {
+                "description": "Place an order for a pet",
+                "path": "/store/order",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "type": "body",
+                        "description": "order placed for purchasing the pet",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "Order"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "Order"
+                        }
+                    }
+                }
+            },
+            "getOrderById": {
+                "description": "Find purchase order by ID",
+                "path": "/store/order/{orderId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "type": "path",
+                        "description": "ID of pet that needs to be fetched",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "Order"
+                        }
+                    }
+                }
+            },
+            "deleteOrder": {
+                "description": "Delete purchase order by ID",
+                "path": "/store/order/{orderId}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "type": "path",
+                        "description": "ID of the order that needs to be deleted",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "user": {
+            "createUser": {
+                "description": "Create user",
+                "path": "/user",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "type": "body",
+                        "description": "Created user object",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "User"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "createUsersWithArrayInput": {
+                "description": "Creates list of users with given input array",
+                "path": "/user/createWithArray",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "type": "body",
+                        "description": "List of user object",
+                        "required": true,
+                        "dataType": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "User"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "createUsersWithListInput": {
+                "description": "Creates list of users with given input array",
+                "path": "/user/createWithList",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "type": "body",
+                        "description": "List of user object",
+                        "required": true,
+                        "dataType": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "User"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "loginUser": {
+                "description": "Logs user into the system",
+                "path": "/user/login",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "type": "query",
+                        "description": "The user name for login",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "type": "query",
+                        "description": "The password for login in clear text",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "logoutUser": {
+                "description": "Logs out current logged in user session",
+                "path": "/user/logout",
+                "verb": "get",
+                "parameters": [],
+                "responses": {}
+            },
+            "getUserByName": {
+                "description": "Get user by user name",
+                "path": "/user/{username}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "type": "path",
+                        "description": "The name that needs to be fetched. Use user1 for testing. ",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "User"
+                        }
+                    }
+                }
+            },
+            "updateUser": {
+                "description": "Updated user",
+                "path": "/user/{username}",
+                "verb": "put",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "type": "path",
+                        "description": "name that need to be updated",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "type": "body",
+                        "description": "Updated user object",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "complex",
+                            "type": "User"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "deleteUser": {
+                "description": "Delete user",
+                "path": "/user/{username}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "type": "path",
+                        "description": "The name that needs to be deleted",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    }
+}

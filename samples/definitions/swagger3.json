@@ -1,0 +1,100 @@
+{
+    "models": {
+        "Product": {
+            "id": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "integer",
+                "subType": "int32"
+            },
+            "name": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "category": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "string"
+            },
+            "price": {
+                "isArray": false,
+                "kind": "primitive",
+                "type": "number",
+                "subType": "double"
+            }
+        }
+    },
+    "services": {
+        "Products": {
+            "Products_Get": {
+                "path": "/api/Product",
+                "verb": "get",
+                "parameters": [],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "Product"
+                        }
+                    }
+                }
+            },
+            "Products_GetProduct": {
+                "path": "/api/Product/api/product/{id}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "integer",
+                            "subType": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "Products_GetProducts": {
+                "path": "/api/Product/api/product",
+                "verb": "get",
+                "parameters": [],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "kind": "primitive",
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "Products_GetAllProducts": {
+                "path": "/api/Products/GetAllProducts",
+                "verb": "get",
+                "parameters": [],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "kind": "complex",
+                            "type": "Product"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

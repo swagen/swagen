@@ -40,8 +40,11 @@ function handleSwagger(swagger, outputFile) {
 
     let parser = require('./lib/parser');
     let definition = parser(swagger);
-    fs.writeFileSync(path.resolve(currentDir, outputFile),
-        JSON.stringify(definition, null, 4), 'utf8');
+
+    let generator = require('./lib/generator');
+    let output = generator(definition);
+
+    fs.writeFileSync(path.resolve(currentDir, outputFile), output, 'utf8');
 }
 
 function processInputs(config) {
