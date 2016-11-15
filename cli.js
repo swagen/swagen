@@ -25,34 +25,15 @@ function getConfig() {
     throw new Error('Please specify a swagen.js or swagen.json file to configure the swagen tool.');
 }
 
-function handleSwagger(swagger, outputFile, inputs) {
-    if (typeof swagger === 'string') {
-        swagger = JSON.parse(swagger);
-    }
-
-    let parser = require('./lib/parser');
-    let definition = parser(swagger);
-    if (inputs.debug && inputs.debug.definition) {
-        let definitionJson = JSON.stringify(definition, null, 4);
-        fs.writeFileSync(path.resolve(currentDir, inputs.debug.definition), definitionJson, 'utf8');
-    }
-
-    let generator = require('./lib/generator');
-    let output = generator(definition);
-
-    fs.writeFileSync(path.resolve(currentDir, outputFile), output, 'utf8');
-}
-
 function processInputs(config) {
     for (let outputFile in config) {
         let inputs = config[outputFile];
 
         let outputFilePath = path.resolve(currentDir, outputFile);
-        console.log(`Output path: ${outputFilePath}`);
 
         if (inputs.source.file) {
             let inputFilePath = path.resolve(currentDir, inputs.source.file);
-            console.log(`Input path : ${inputFilePath}`);
+            console.log(chalk.green(`Input swagger file : ${inputFilePath}`));
             fs.readFile(inputFilePath, 'utf8', function(error, swagger) {
                 if (error) {
                     throw error;
@@ -60,6 +41,7 @@ function processInputs(config) {
                 handleSwagger(swagger, outputFilePath, inputs);
             });
         } else {
+            console.log(chalk.green(`Input swagger URL : ${inputs.source.url}`));
             let swagger = '';
             let request = http.request(inputs.source.url, function(response) {
                 response.setEncoding('utf8');
@@ -77,3 +59,23 @@ function processInputs(config) {
 
 let config = getConfig();
 processInputs(config);
+
+function handleSwagger(swagger, outputFile, inputs) {
+    if (typeof swagger === 'string') {
+        swagger = JSON.parse(swagger);
+    }
+
+    let parser = require('./lib/parser');
+    let definition = parser(swagger);
+    if (inputs.debug && inputs.debug.definition) {
+        let definitionJson = JSON.stringify(definition, null, 4);
+        fs.writeFileSync(path.resolve(currentDir, inputs.debug.definition), definitionJson, 'utf8');
+        console.log(chalk.blue(`[debug] Definition file written to '${inputs.debug.definition}'.`))
+    }
+
+    let generator = require('./lib/generator');
+    let output = generator(definition);
+
+    fs.writeFileSync(path.resolve(currentDir, outputFile), output, 'utf8');
+    console.log(chalk.green(`Code generated at '${outputFile}'.`))
+}

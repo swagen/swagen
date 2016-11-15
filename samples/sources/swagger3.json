@@ -28,6 +28,12 @@
                     }
                 ],
                 "responses": {
+                    "500": {
+                        "description": "Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
                     "200": {
                         "description": "Success",
                         "schema": {
@@ -63,6 +69,12 @@
                     }
                 ],
                 "responses": {
+                    "500": {
+                        "description": "Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
                     "200": {
                         "description": "Success",
                         "schema": {
@@ -80,7 +92,11 @@
                 ],
                 "operationId": "ApiAssetByAssetIdDelete",
                 "consumes": [],
-                "produces": [],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
                 "parameters": [
                     {
                         "name": "assetId",
@@ -91,8 +107,11 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "Success"
+                    "500": {
+                        "description": "Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
                     }
                 },
                 "deprecated": false
@@ -109,7 +128,11 @@
                     "text/json",
                     "application/json-patch+json"
                 ],
-                "produces": [],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
                 "parameters": [
                     {
                         "name": "asset",
@@ -121,8 +144,11 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "Success"
+                    "500": {
+                        "description": "Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
                     }
                 },
                 "deprecated": false
@@ -1846,6 +1872,17 @@
         }
     },
     "definitions": {
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "logID": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
         "AssetViewModel": {
             "type": "object",
             "properties": {

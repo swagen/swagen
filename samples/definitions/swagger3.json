@@ -4,6 +4,16 @@
         "baseUrl": "http://localhost/"
     },
     "models": {
+        "ErrorResponse": {
+            "logID": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "message": {
+                "isArray": false,
+                "primitive": "string"
+            }
+        },
         "AssetViewModel": {
             "leadId": {
                 "isArray": false,
@@ -960,6 +970,12 @@
                             "isArray": true,
                             "complex": "AssetViewModel"
                         }
+                    },
+                    "serverError": {
+                        "500": {
+                            "isArray": false,
+                            "complex": "ErrorResponse"
+                        }
                     }
                 }
             },
@@ -984,6 +1000,12 @@
                             "isArray": false,
                             "complex": "AssetViewModel"
                         }
+                    },
+                    "serverError": {
+                        "500": {
+                            "isArray": false,
+                            "complex": "ErrorResponse"
+                        }
                     }
                 }
             },
@@ -1002,7 +1024,14 @@
                         }
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "serverError": {
+                        "500": {
+                            "isArray": false,
+                            "complex": "ErrorResponse"
+                        }
+                    }
+                }
             },
             "ApiAssetPost": {
                 "path": "/api/Asset",
@@ -1018,7 +1047,14 @@
                         }
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "serverError": {
+                        "500": {
+                            "isArray": false,
+                            "complex": "ErrorResponse"
+                        }
+                    }
+                }
             }
         },
         "Borrower": {
