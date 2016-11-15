@@ -1,59 +1,980 @@
 {
+    "metadata": {
+        "title": "API V1",
+        "baseUrl": "http://localhost/"
+    },
     "models": {
-        "Product": {
-            "id": {
+        "AssetViewModel": {
+            "leadId": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "assetId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "assetTypeId": {
+                "isArray": false,
+                "primitive": "integer",
                 "subType": "int32"
             },
-            "name": {
+            "assetValue": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "number",
+                "subType": "double"
             },
-            "category": {
+            "financialInstitution": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
-            "price": {
+            "isDownPaymentSource": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "number",
+                "primitive": "boolean"
+            },
+            "accountHolder": {
+                "isArray": true,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "isMoneyReceivedAsGift": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "amount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            }
+        },
+        "BorrowerBasicInfoViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "firstName": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "lastName": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "middleName": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "emailId": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "homePhone": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "mobilePhone": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "workPhone": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "relationTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "isprimaryBorrower": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "borrowerTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "BorrowerInfoViewModel": {
+            "borrowerBasicInfo": {
+                "isArray": false,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "dateOfBirth": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            },
+            "selectedYearsOfSchoolId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "martialStatusId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "selectedNumberOfDependentId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "ageOfDependents": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "isSameAddress": {
+                "isArray": false,
+                "primitive": "boolean"
+            }
+        },
+        "BorrowerExistingMortgageViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "isMortgageExist": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "monthlyMortgagePayment": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "isPlanningToSell": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "expectedSalePrice": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "moneyFromSale": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "isPlanningToRentOut": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "expectedMonthlyRent": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            }
+        },
+        "BorrowerAddressViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "residenceTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "currentAddress": {
+                "isArray": false,
+                "complex": "Address"
+            },
+            "livingSince": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            },
+            "isMailingAddressSame": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "mailingAddress": {
+                "isArray": false,
+                "complex": "Address"
+            },
+            "monthlyRent": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            }
+        },
+        "Address": {
+            "addressLine1": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "addressLine2": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "city": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "state": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "county": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "zip": {
+                "isArray": false,
+                "primitive": "string"
+            }
+        },
+        "BorrowerPreviousAddressViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "previousAddressId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "previousAddress": {
+                "isArray": false,
+                "complex": "Address"
+            },
+            "movedInDate": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            },
+            "movedOutDate": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            }
+        },
+        "MasterData": {
+            "masterDataId": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "masterDataType": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "masterDataCode": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "masterDataName": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "masterDataDescription": {
+                "isArray": false,
+                "primitive": "object"
+            },
+            "sortId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "createdOn": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "createdBy": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "isDeleted": {
+                "isArray": false,
+                "primitive": "boolean"
+            }
+        },
+        "LeadDeclaration": {
+            "borrowerInfo": {
+                "isArray": true,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "borrowerWithOutstandingJudgement": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "applicantBankrupt": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "propertyForeclosedApplicant": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "applicantPartyWithLawSuit": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "applicantObligatedOnAnyLoan": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "delinquentApplicant": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "downPaymentBorrower": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "coMakerOrEndorser": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "applicantToPayAlimony": {
+                "isArray": false,
+                "complex": "Declaration"
+            },
+            "occupier": {
+                "isArray": true,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "hasAnyApplicantHadOwnershipInterest": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "applicantOwnershipInterest": {
+                "isArray": true,
+                "complex": "ApplicantOwnershipInterest"
+            },
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            }
+        },
+        "Declaration": {
+            "yesOrNo": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "declarator": {
+                "isArray": true,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "explanation": {
+                "isArray": false,
+                "primitive": "string"
+            }
+        },
+        "ApplicantOwnershipInterest": {
+            "borrower": {
+                "isArray": false,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "propertyTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "titleHeldId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "LeadDemographicViewModel": {
+            "borrower": {
+                "isArray": false,
+                "complex": "BorrowerListViewModel"
+            },
+            "borrowerDemographics": {
+                "isArray": false,
+                "complex": "DemographicViewModel"
+            },
+            "ethinicityType": {
+                "isArray": true,
+                "complex": "LookUp"
+            },
+            "raceType": {
+                "isArray": true,
+                "complex": "LookUp"
+            },
+            "genderType": {
+                "isArray": true,
+                "complex": "LookUp"
+            },
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            }
+        },
+        "BorrowerListViewModel": {
+            "borrower": {
+                "isArray": true,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "selectedBorrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            }
+        },
+        "DemographicViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "borrowerDemographicId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "detailsVisibility": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "ethinicityTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "raceTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "genderTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "LookUp": {
+            "code": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "displayValue": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "description": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "sortId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "BorrowerPrimaryEmploymentViewModel": {
+            "isEmployed": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "borrowerPrimaryJobDetail": {
+                "isArray": false,
+                "complex": "BorrowerEmploymentViewModel"
+            }
+        },
+        "BorrowerEmploymentViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "borrowerEmploymentId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "companyName": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "designation": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "businessPhone": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "isSelfEmployed": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "employerAddress": {
+                "isArray": false,
+                "complex": "Address"
+            }
+        },
+        "BorrowerIncomeViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "borrowerIncomeId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "dateOfJoining": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            },
+            "basicIncome": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "basicIntervalId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "overtimeIncome": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "overTimeIntervalId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "businessIncome": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "businessIntervalId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "bonusIncome": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "bonusIncomeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "BorrowerPreviousEmploymentViewModel": {
+            "employedFrom": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            },
+            "employedTill": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            },
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "borrowerEmploymentId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "companyName": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "designation": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "businessPhone": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "isSelfEmployed": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "employerAddress": {
+                "isArray": false,
+                "complex": "Address"
+            }
+        },
+        "BorrowerSelfEmploymentViewModel": {
+            "selectedCompanyStructureId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "borrowerEmploymentId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "companyName": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "designation": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "businessPhone": {
+                "isArray": false,
+                "primitive": "string"
+            },
+            "isSelfEmployed": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "employerAddress": {
+                "isArray": false,
+                "complex": "Address"
+            }
+        },
+        "BorrowerSelfIncomeViewModel": {
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "borrowerSelfIncomeId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "dateOfJoining": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "date-time"
+            },
+            "selectedOwnershipPercentageId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "previousYearIncome1": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "previousYearIncome2": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "received1099": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "lastYears1099Amount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "selectedTaxFormTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "w2IncomeYear1": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "w2IncomeYear2": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "k1IncomeYear1": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "k1IncomeYear2": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            }
+        },
+        "BorrowerSecondaryEmploymentViewModel": {
+            "hasSecondJob": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "borrowerSecondaryJobDetail": {
+                "isArray": false,
+                "complex": "BorrowerEmploymentViewModel"
+            }
+        },
+        "OtherIncomeSourceViewModel": {
+            "otherIncomeId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "borrowerId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "incomeTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "monthlyAmount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "isActive": {
+                "isArray": false,
+                "primitive": "boolean"
+            }
+        },
+        "OtherIncomeDetailsViewModel": {
+            "incomeDetails": {
+                "isArray": true,
+                "complex": "OtherIncomeSourceViewModel"
+            },
+            "haveOtherSourcesofIncome": {
+                "isArray": false,
+                "primitive": "boolean"
+            }
+        },
+        "LeadBasicInfo": {
+            "primaryBorrower": {
+                "isArray": false,
+                "complex": "BorrowerBasicInfoViewModel"
+            },
+            "propertyAddress": {
+                "isArray": false,
+                "complex": "Address"
+            },
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            }
+        },
+        "PropertyAddressViewModel": {
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "propertyAddress": {
+                "isArray": false,
+                "complex": "Address"
+            },
+            "propertyTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "occupancyTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "PropertySelectedViewModel": {
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "expectedPurchaseAmount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "downPaymentAmount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "downPaymentPercentage": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "desiredMortgageAmount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "isContractAcceptedWithSeller": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "isClosingAmountPaidBySeller": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "sellerContributionAmount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "sellerContributionPercentage": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            }
+        },
+        "PropertyDesiredViewModel": {
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "isPreQualifyLoanAmountKnown": {
+                "isArray": false,
+                "primitive": "boolean"
+            },
+            "expectedPurchasePriceId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "desiredMortgageAmountRangeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "PropertyRefinanceViewModel": {
+            "refinancePurposeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "currentPropertyValue": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "desiredMortgageAmount": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "propertyAddress": {
+                "isArray": false,
+                "complex": "Address"
+            },
+            "propertyTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "occupancyTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            }
+        },
+        "PropertyCurrentMortgageViewModel": {
+            "leadId": {
+                "isArray": false,
+                "primitive": "string",
+                "subType": "uuid"
+            },
+            "loanTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "loanTermId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "amortizationTypeId": {
+                "isArray": false,
+                "primitive": "integer",
+                "subType": "int32"
+            },
+            "currentMonthyPayment": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "currentMortgageBalance": {
+                "isArray": false,
+                "primitive": "number",
+                "subType": "double"
+            },
+            "currentMortgageRate": {
+                "isArray": false,
+                "primitive": "number",
                 "subType": "double"
             }
         }
     },
     "services": {
-        "Products": {
-            "Products_Get": {
-                "path": "/api/Product",
-                "verb": "get",
-                "parameters": [],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": true,
-                            "kind": "complex",
-                            "type": "Product"
-                        }
-                    }
-                }
-            },
-            "Products_GetProduct": {
-                "path": "/api/Product/api/product/{id}",
+        "Asset": {
+            "ApiAssetByLeadIdGet": {
+                "path": "/api/Asset/{leadId}",
                 "verb": "get",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "leadId",
                         "type": "path",
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "integer",
-                            "subType": "int32"
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "complex": "AssetViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiAssetTypeByAssetIdGet": {
+                "path": "/api/Asset/type/{assetId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "assetId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
                         }
                     }
                 ],
@@ -61,36 +982,1239 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "object"
+                            "complex": "AssetViewModel"
                         }
                     }
                 }
             },
-            "Products_GetProducts": {
-                "path": "/api/Product/api/product",
+            "ApiAssetByAssetIdDelete": {
+                "path": "/api/Asset/{assetId}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "assetId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiAssetPost": {
+                "path": "/api/Asset",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "asset",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "AssetViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "Borrower": {
+            "ApiBorrowerLeadByLeadIdGet": {
+                "path": "/api/Borrower/lead/{leadId}",
                 "verb": "get",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "complex": "BorrowerBasicInfoViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiBorrowerPost": {
+                "path": "/api/Borrower",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "borrowerBasicInfo",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerBasicInfoViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerByBorrowerIdGet": {
+                "path": "/api/Borrower/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
                 "responses": {
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "object"
+                            "complex": "BorrowerInfoViewModel"
                         }
                     }
                 }
             },
-            "Products_GetAllProducts": {
-                "path": "/api/Products/GetAllProducts",
+            "ApiBorrowerByBorrowerIdDelete": {
+                "path": "/api/Borrower/{borrowerId}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerPersonalinfoPost": {
+                "path": "/api/Borrower/personalinfo",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "borrowerPersonalDetail",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerInfoViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerExistingmortgageByBorrowerIdGet": {
+                "path": "/api/Borrower/existingmortgage/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerExistingMortgageViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiBorrowerExistingmortgageByBorrowerIdDelete": {
+                "path": "/api/Borrower/existingmortgage/{borrowerId}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerExistingmortgagePost": {
+                "path": "/api/Borrower/existingmortgage",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "borrowerExistingMortgage",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerExistingMortgageViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerCurrentaddressByBorrowerIdGet": {
+                "path": "/api/Borrower/currentaddress/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerAddressViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiBorrowerCurrentaddressByBorrowerIdDelete": {
+                "path": "/api/Borrower/currentaddress/{borrowerId}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerCurrentaddressPost": {
+                "path": "/api/Borrower/currentaddress",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "borrowerAddress",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerAddressViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerPreviousaddressByBorrowerIdGet": {
+                "path": "/api/Borrower/previousaddress/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerPreviousAddressViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiBorrowerPreviousaddressByBorrowerIdDelete": {
+                "path": "/api/Borrower/previousaddress/{borrowerId}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiBorrowerPreviousaddressPost": {
+                "path": "/api/Borrower/previousaddress",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "borrowerPreviousAddress",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerPreviousAddressViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "Common": {
+            "ApiCommonMasterdataByTypeGet": {
+                "path": "/api/common/masterdata/{type}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "MasterData"
+                        }
+                    }
+                }
+            }
+        },
+        "Declaration": {
+            "ApiDeclarationLeaddeclarationPost": {
+                "path": "/api/declaration/leaddeclaration",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "LeadDeclaration"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiDeclarationLeaddeclarationByLeadIdGet": {
+                "path": "/api/declaration/leaddeclaration/{leadId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "Demographic": {
+            "ApiDemographicByBorrowerIdGet": {
+                "path": "/api/Demographic/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "LeadDemographicViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiDemographicPost": {
+                "path": "/api/Demographic",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "borrowerDemographicDetails",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "DemographicViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "Employment": {
+            "ApiEmploymentPrimaryByBorrowerIdGet": {
+                "path": "/api/employment/primary/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerPrimaryEmploymentViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentPrimaryPost": {
+                "path": "/api/employment/primary",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "borrowerEmploymentDetails",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerEmploymentViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiEmploymentIncomeByBorrowerIdGet": {
+                "path": "/api/employment/income/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerIncomeViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentIncomePost": {
+                "path": "/api/employment/income",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "incomeDetails",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerIncomeViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiEmploymentPreviousByBorrowerIdGet": {
+                "path": "/api/employment/previous/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": true,
+                            "complex": "BorrowerPreviousEmploymentViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentPreviousPost": {
+                "path": "/api/employment/previous",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "previousEmploymentDetails",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerPreviousEmploymentViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiEmploymentSelfByBorrowerIdGet": {
+                "path": "/api/employment/self/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerSelfEmploymentViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentSelfPost": {
+                "path": "/api/employment/self",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "selfEmploymentDetails",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerSelfEmploymentViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiEmploymentSelfincomeByBorrowerIdGet": {
+                "path": "/api/employment/selfincome/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerSelfIncomeViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentSelfincomePost": {
+                "path": "/api/employment/selfincome",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "selfIncomeDetails",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "BorrowerSelfIncomeViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiEmploymentSecondaryByBorrowerIdGet": {
+                "path": "/api/employment/secondary/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "BorrowerSecondaryEmploymentViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentIncomesourceByTypeIdGet": {
+                "path": "/api/employment/incomesource/{typeId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "typeId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "OtherIncomeSourceViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentOtherincomeByBorrowerIdGet": {
+                "path": "/api/employment/otherincome/{borrowerId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "borrowerId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "OtherIncomeDetailsViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiEmploymentByIncometypeidDelete": {
+                "path": "/api/employment/{incometypeid}",
+                "verb": "delete",
+                "parameters": [
+                    {
+                        "name": "incomeTypeId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiEmploymentAddotherincomePost": {
+                "path": "/api/employment/addotherincome",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "incomeSourceDetails",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "OtherIncomeSourceViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "Identity": {
+            "ApiIdentityGet": {
+                "path": "/api/Identity",
+                "verb": "get",
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "Lead": {
+            "ApiLeadGetGet": {
+                "path": "/api/Lead/Get",
                 "verb": "get",
                 "parameters": [],
                 "responses": {
                     "success": {
                         "200": {
                             "isArray": true,
-                            "kind": "complex",
-                            "type": "Product"
+                            "complex": "LeadBasicInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "Loan": {
+            "ApiLoanEligibleproductsByLeadIdGet": {
+                "path": "/api/loan/eligibleproducts/{leadId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiLoanProductscompareGet": {
+                "path": "/api/loan/productscompare",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "LeadId",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    },
+                    {
+                        "name": "ProductId",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "integer",
+                            "subType": "int32"
+                        }
+                    },
+                    {
+                        "name": "ProductName",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "Rate",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "number",
+                            "subType": "double"
+                        }
+                    },
+                    {
+                        "name": "Apr",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "number",
+                            "subType": "double"
+                        }
+                    },
+                    {
+                        "name": "Points",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "number",
+                            "subType": "double"
+                        }
+                    },
+                    {
+                        "name": "PandI",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "number",
+                            "subType": "double"
+                        }
+                    },
+                    {
+                        "name": "Fees",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "number",
+                            "subType": "double"
+                        }
+                    },
+                    {
+                        "name": "IsProductSelected",
+                        "type": "modelbinding",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "boolean"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "Property": {
+            "ApiPropertyAddressPut": {
+                "path": "/api/property/address",
+                "verb": "put",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertyAddressViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyAddressPost": {
+                "path": "/api/property/address",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "LeadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    },
+                    {
+                        "name": "PropertyAddress.AddressLine1",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "PropertyAddress.AddressLine2",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "PropertyAddress.City",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "PropertyAddress.State",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "PropertyAddress.County",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "PropertyAddress.Zip",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "PropertyTypeId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "integer",
+                            "subType": "int32"
+                        }
+                    },
+                    {
+                        "name": "OccupancyTypeId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "integer",
+                            "subType": "int32"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyAddressByLeadIdGet": {
+                "path": "/api/property/address/{leadId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "PropertyAddressViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiPropertyAddressdeleteByLeadIdByIsPropertySelectedGet": {
+                "path": "/api/property/addressdelete/{leadId}/{isPropertySelected}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    },
+                    {
+                        "name": "isPropertySelected",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "boolean"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertySelectedPut": {
+                "path": "/api/property/selected",
+                "verb": "put",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertySelectedViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertySelectedPost": {
+                "path": "/api/property/selected",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertySelectedViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertySelectedByLeadIdGet": {
+                "path": "/api/property/selected/{leadId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "PropertySelectedViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiPropertyDesiredPut": {
+                "path": "/api/property/desired",
+                "verb": "put",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertyDesiredViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyDesiredPost": {
+                "path": "/api/property/desired",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertyDesiredViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyDesiredByLeadIdGet": {
+                "path": "/api/property/desired/{leadId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "PropertyDesiredViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiPropertyRefinancePut": {
+                "path": "/api/property/refinance",
+                "verb": "put",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertyRefinanceViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyRefinancePost": {
+                "path": "/api/property/refinance",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertyRefinanceViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyRefinanceByLeadIdGet": {
+                "path": "/api/property/refinance/{leadId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "PropertyRefinanceViewModel"
+                        }
+                    }
+                }
+            },
+            "ApiPropertyCurrentmortgagePut": {
+                "path": "/api/property/currentmortgage",
+                "verb": "put",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertyCurrentMortgageViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyCurrentmortgagePost": {
+                "path": "/api/property/currentmortgage",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "PropertyCurrentMortgageViewModel"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "ApiPropertyCurrentmortgageByLeadIdGet": {
+                "path": "/api/property/currentmortgage/{leadId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "leadId",
+                        "type": "path",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string",
+                            "subType": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "200": {
+                            "isArray": false,
+                            "complex": "PropertyCurrentMortgageViewModel"
                         }
                     }
                 }

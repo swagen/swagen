@@ -1,5 +1,5 @@
 {
-  "name": "@swagen/cli",
+  "name": "swagen",
   "version": "0.0.1",
   "description": "Client code generator for Swagger JSON",
   "main": "cli.js",

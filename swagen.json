@@ -2,21 +2,33 @@
     "./samples/outputs/swagger.ts": {
         "source": {
             "file": "./samples/sources/swagger.json"
+        },
+        "debug": {
+            "definition": "./samples/definitions/swagger.json"
         }
     },
     "./samples/outputs/swagger2.ts": {
         "source": {
             "file": "./samples/sources/swagger2.json"
+        },
+        "debug": {
+            "definition": "./samples/definitions/swagger2.json"
         }
     },
     "./samples/outputs/swagger3.ts": {
         "source": {
             "file": "./samples/sources/swagger3.json"
+        },
+        "debug": {
+            "definition": "./samples/definitions/swagger3.json"
         }
     },
     "./samples/outputs/petstore.ts": {
         "source": {
             "url": "http://petstore.swagger.io/v2/swagger.json"
+        },
+        "debug": {
+            "definition": "./samples/definitions/petstore.json"
         }
     }
 }

@@ -12,34 +12,30 @@ let chalk = require('chalk');
 let currentDir = process.cwd();
 
 function getConfig() {
-    let configScript = path.resolve(currentDir, 'swagger-client.js');
+    let configScript = path.resolve(currentDir, 'swagen.js');
     if (fs.existsSync(configScript)) {
         return require(configScript);
     }
 
-    let configJson = path.resolve(currentDir, 'swagger-client.json');
+    let configJson = path.resolve(currentDir, 'swagen.json');
     if (fs.existsSync(configJson)) {
         return require(configJson);
     }
 
-    throw new Error('Please specify a swagger-client.js or swagger-client.json file to configure the swagger-client tool.');
+    throw new Error('Please specify a swagen.js or swagen.json file to configure the swagen tool.');
 }
 
-function handleSwagger(swagger, outputFile) {
+function handleSwagger(swagger, outputFile, inputs) {
     if (typeof swagger === 'string') {
         swagger = JSON.parse(swagger);
     }
 
-    if (!swagger.info) {
-        console.log(chalk.bold.red.bgBlack('No title found'));
-        console.log(chalk.red.bgBlack('No description found'));
-    } else {
-        console.log(chalk.yellow.bgBlack.bold(swagger.info.title || 'No title found'));
-        console.log(chalk.yellow.bgBlack(swagger.info.description || 'No description found'));
-    }
-
     let parser = require('./lib/parser');
     let definition = parser(swagger);
+    if (inputs.debug && inputs.debug.definition) {
+        let definitionJson = JSON.stringify(definition, null, 4);
+        fs.writeFileSync(path.resolve(currentDir, inputs.debug.definition), definitionJson, 'utf8');
+    }
 
     let generator = require('./lib/generator');
     let output = generator(definition);
@@ -61,7 +57,7 @@ function processInputs(config) {
                 if (error) {
                     throw error;
                 }
-                handleSwagger(swagger, outputFilePath);
+                handleSwagger(swagger, outputFilePath, inputs);
             });
         } else {
             let swagger = '';
@@ -71,7 +67,7 @@ function processInputs(config) {
                     swagger += chunk;
                 });
                 response.on('end', function() {
-                    handleSwagger(swagger, outputFile);
+                    handleSwagger(swagger, outputFile, inputs);
                 });
             });
             request.end();

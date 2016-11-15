@@ -1,160 +1,138 @@
 {
+    "metadata": {
+        "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+        "title": "Swagger Petstore",
+        "baseUrl": "http://petstore.swagger.io/v2/"
+    },
     "models": {
         "Order": {
             "id": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int64"
             },
             "petId": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int64"
             },
             "quantity": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int32"
             },
             "shipDate": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string",
+                "primitive": "string",
                 "subType": "date-time"
             },
             "status": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "complete": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "boolean"
+                "primitive": "boolean"
             }
         },
         "Category": {
             "id": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int64"
             },
             "name": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             }
         },
         "User": {
             "id": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int64"
             },
             "username": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "firstName": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "lastName": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "email": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "password": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "phone": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "userStatus": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int32"
             }
         },
         "Tag": {
             "id": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int64"
             },
             "name": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             }
         },
         "Pet": {
             "id": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int64"
             },
             "category": {
                 "isArray": false,
-                "kind": "complex",
-                "type": "Category"
+                "complex": "Category"
             },
             "name": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "photoUrls": {
                 "isArray": true,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "tags": {
                 "isArray": true,
-                "kind": "complex",
-                "type": "Tag"
+                "complex": "Tag"
             },
             "status": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             }
         },
         "ApiResponse": {
             "code": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "integer",
+                "primitive": "integer",
                 "subType": "int32"
             },
             "type": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             },
             "message": {
                 "isArray": false,
-                "kind": "primitive",
-                "type": "string"
+                "primitive": "string"
             }
         }
     },
@@ -172,8 +150,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "Pet"
+                            "complex": "Pet"
                         }
                     }
                 ],
@@ -191,8 +168,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "Pet"
+                            "complex": "Pet"
                         }
                     }
                 ],
@@ -210,8 +186,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": true,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     }
                 ],
@@ -219,8 +194,7 @@
                     "success": {
                         "200": {
                             "isArray": true,
-                            "kind": "complex",
-                            "type": "Pet"
+                            "complex": "Pet"
                         }
                     }
                 }
@@ -237,8 +211,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": true,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     }
                 ],
@@ -246,8 +219,7 @@
                     "success": {
                         "200": {
                             "isArray": true,
-                            "kind": "complex",
-                            "type": "Pet"
+                            "complex": "Pet"
                         }
                     }
                 }
@@ -264,8 +236,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "integer",
+                            "primitive": "integer",
                             "subType": "int64"
                         }
                     }
@@ -274,8 +245,7 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "Pet"
+                            "complex": "Pet"
                         }
                     }
                 }
@@ -292,8 +262,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "integer",
+                            "primitive": "integer",
                             "subType": "int64"
                         }
                     },
@@ -304,8 +273,7 @@
                         "required": false,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     },
                     {
@@ -315,8 +283,7 @@
                         "required": false,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     }
                 ],
@@ -333,8 +300,7 @@
                         "required": false,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     },
                     {
@@ -344,8 +310,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "integer",
+                            "primitive": "integer",
                             "subType": "int64"
                         }
                     }
@@ -364,8 +329,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "integer",
+                            "primitive": "integer",
                             "subType": "int64"
                         }
                     },
@@ -376,8 +340,7 @@
                         "required": false,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     },
                     {
@@ -387,8 +350,7 @@
                         "required": false,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "file"
+                            "primitive": "file"
                         }
                     }
                 ],
@@ -396,8 +358,7 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "ApiResponse"
+                            "complex": "ApiResponse"
                         }
                     }
                 }
@@ -413,8 +374,7 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "object"
+                            "primitive": "object"
                         }
                     }
                 }
@@ -431,8 +391,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "Order"
+                            "complex": "Order"
                         }
                     }
                 ],
@@ -440,8 +399,7 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "Order"
+                            "complex": "Order"
                         }
                     }
                 }
@@ -458,8 +416,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "integer",
+                            "primitive": "integer",
                             "subType": "int64"
                         }
                     }
@@ -468,8 +425,7 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "Order"
+                            "complex": "Order"
                         }
                     }
                 }
@@ -486,8 +442,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "integer",
+                            "primitive": "integer",
                             "subType": "int64"
                         }
                     }
@@ -508,8 +463,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "User"
+                            "complex": "User"
                         }
                     }
                 ],
@@ -527,8 +481,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": true,
-                            "kind": "complex",
-                            "type": "User"
+                            "complex": "User"
                         }
                     }
                 ],
@@ -546,8 +499,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": true,
-                            "kind": "complex",
-                            "type": "User"
+                            "complex": "User"
                         }
                     }
                 ],
@@ -565,8 +517,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     },
                     {
@@ -576,8 +527,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     }
                 ],
@@ -585,8 +535,7 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     }
                 }
@@ -610,8 +559,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     }
                 ],
@@ -619,8 +567,7 @@
                     "success": {
                         "200": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "User"
+                            "complex": "User"
                         }
                     }
                 }
@@ -637,8 +584,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     },
                     {
@@ -648,8 +594,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "complex",
-                            "type": "User"
+                            "complex": "User"
                         }
                     }
                 ],
@@ -667,8 +612,7 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "kind": "primitive",
-                            "type": "string"
+                            "primitive": "string"
                         }
                     }
                 ],
