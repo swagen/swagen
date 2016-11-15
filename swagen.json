@@ -22,13 +22,5 @@
         "debug": {
             "definition": "./samples/definitions/swagger3.json"
         }
-    },
-    "./samples/outputs/petstore.ts": {
-        "source": {
-            "url": "http://petstore.swagger.io/v2/swagger.json"
-        },
-        "debug": {
-            "definition": "./samples/definitions/petstore.json"
-        }
     }
 }

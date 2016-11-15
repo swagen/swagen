@@ -1338,7 +1338,35 @@
                         "required": true,
                         "dataType": {
                             "isArray": false,
-                            "primitive": "string"
+                            "primitive": "string",
+                            "subType": "enum",
+                            "enumValues": [
+                                "LoanPurpose",
+                                "State",
+                                "HouseType",
+                                "OccupancyType",
+                                "MaritalStatus",
+                                "OwnRentStatus",
+                                "EmploymentStatus",
+                                "Bankruptcy",
+                                "Foreclosure",
+                                "CitizenshipStatus",
+                                "EthnicInfo",
+                                "Race",
+                                "SalaryFrequency",
+                                "PhoneType",
+                                "Education",
+                                "BorrowerRelation",
+                                "Month",
+                                "LoanType",
+                                "LoanTerm",
+                                "AmortizationType",
+                                "DesiredMortgageAmountRange",
+                                "GetRefinancePurpose",
+                                "CompanyStructure",
+                                "SecurityQuestion",
+                                "IncomeType"
+                            ]
                         }
                     }
                 ],
