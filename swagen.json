@@ -1,26 +1,37 @@
 {
-    "./samples/outputs/swagger.ts": {
-        "source": {
-            "file": "./samples/sources/swagger.json"
-        },
+    "swagger1": {
+        "file": "./samples/sources/swagger.json",
+        "output": "./samples/outputs/swagger.ts",
         "debug": {
             "definition": "./samples/definitions/swagger.json"
         }
     },
-    "./samples/outputs/swagger2.ts": {
-        "source": {
-            "file": "./samples/sources/swagger2.json"
-        },
+    "swagger2": {
+        "file": "./samples/sources/swagger2.json",
+        "output": "./samples/outputs/swagger2.ts",
         "debug": {
             "definition": "./samples/definitions/swagger2.json"
         }
     },
-    "./samples/outputs/swagger3.ts": {
-        "source": {
-            "file": "./samples/sources/swagger3.json"
-        },
+    "swagger3": {
+        "file": "./samples/sources/swagger3.json",
+        "output": "./samples/outputs/swagger3.ts",
         "debug": {
             "definition": "./samples/definitions/swagger3.json"
+        },
+        "options": {
+            "baseUrl": {
+                "provider": "Config",
+                "parameter": "config",
+                "path": ["baseUrl"]
+            }
+        }
+    },
+    "petstore": {
+        "url": "http://petstore.swagger.io/v2/swagger.json",
+        "output": "./samples/outputs/petstore.ts",
+        "debug": {
+            "definition": "./samples/definitions/petstore.json"
         }
     }
 }

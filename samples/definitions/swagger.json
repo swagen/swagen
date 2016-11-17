@@ -4,6 +4,827 @@
         "title": "Api Documentation",
         "baseUrl": "http://10.130.177.127:8700/"
     },
+    "services": {
+        "b-2-b-application-resource": {
+            "processApplicationDecisionPdfUsingGET": {
+                "description": "processApplicationDecisionPdf",
+                "path": "/b2b/application/decisionpdf/{dispositionType}/{commitmentNumber}/{gnwLoanNumber}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "dispositionType",
+                        "type": "path",
+                        "description": "dispositionType",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "commitmentNumber",
+                        "type": "path",
+                        "description": "commitmentNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "gnwLoanNumber",
+                        "type": "path",
+                        "description": "gnwLoanNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": true,
+                            "primitive": "string",
+                            "subType": "byte"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "processQuickSubmitApplicationUsingPOST": {
+                "description": "processQuickSubmitApplication",
+                "path": "/b2b/application/quicksubmit",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "quickSubmitVO",
+                        "type": "body",
+                        "description": "quickSubmitVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "QuickSubmitVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "QuickSubmitVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "getCapsDataUsingGET": {
+                "description": "getCapsData",
+                "path": "/b2b/application/quicksubmit/caps/{orgId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "orgId",
+                        "type": "path",
+                        "description": "orgId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "CapsDataVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "getDuplicateApplicationForOrgAndLenderLoanNumberUsingGET": {
+                "description": "getDuplicateApplicationForOrgAndLenderLoanNumber",
+                "path": "/b2b/application/quicksubmit/duplicate/{orgId}/{lenderLoanNumber}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "orgId",
+                        "type": "path",
+                        "description": "orgId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "lenderLoanNumber",
+                        "type": "path",
+                        "description": "lenderLoanNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": true,
+                            "complex": "DuplicateApplicationVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "lockApplicationUsingPOST": {
+                "description": "lockApplication",
+                "path": "/b2b/application/{commitmentNumber}/lock",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "commitmentNumber",
+                        "type": "path",
+                        "description": "commitmentNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "type": "query",
+                        "description": "userId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "ServiceStatusDTO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "unlockApplicationUsingPOST": {
+                "description": "unlockApplication",
+                "path": "/b2b/application/{commitmentNumber}/unlock",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "commitmentNumber",
+                        "type": "path",
+                        "description": "commitmentNumber",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "ServiceStatusDTO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "getPipelineApplicationsUsingGET": {
+                "description": "getPipelineApplications",
+                "path": "/b2b/application/{orgid}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "orgid",
+                        "type": "path",
+                        "description": "orgid",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "userid",
+                        "type": "query",
+                        "description": "userid",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "B2BPipelineVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "getPipelineApplicationUsingGET": {
+                "description": "getPipelineApplication",
+                "path": "/b2b/application/{source}/{referenceId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "source",
+                        "type": "path",
+                        "description": "source",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "referenceId",
+                        "type": "path",
+                        "description": "referenceId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "ApplicationDetailVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        },
+        "city-address-resource": {
+            "getAllUSStatesUsingGET": {
+                "description": "getAllUSStates",
+                "path": "/b2b/application/postal/usa/states",
+                "verb": "get",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": true,
+                            "complex": "StateVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "getCityStateFromZipUsingGET": {
+                "description": "getCityStateFromZip",
+                "path": "/b2b/application/postal/{zipCode}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "zipCode",
+                        "type": "path",
+                        "description": "zipCode",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": true,
+                            "complex": "CityPostalVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        },
+        "contract-service-agreement-resource": {
+            "checkForMasterPolicyUsingGET": {
+                "description": "checkForMasterPolicy",
+                "path": "/csagreement/isvalid",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "type": "query",
+                        "description": "email",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "orgId",
+                        "type": "query",
+                        "description": "orgId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "CSAgreementResponseVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "submitCSAgreemnetRequestUsingPOST": {
+                "description": "submitCSAgreemnetRequest",
+                "path": "/csagreement/submit",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "body",
+                        "description": "request",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "CSAgreementRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "CSAgreementResponseVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        },
+        "login-resource": {
+            "loginUsingPOST": {
+                "description": "login",
+                "path": "/login/request",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "loginDto",
+                        "type": "body",
+                        "description": "loginDto",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "LoginDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "ValidationResponseDTO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        },
+        "master-policy-request-resource": {
+            "sendMasterPolicyCompletionEmailUsingGET": {
+                "description": "sendMasterPolicyCompletionEmail",
+                "path": "/masterpolicy/completionEmail/{requesterEmail}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "requesterEmail",
+                        "type": "path",
+                        "description": "requesterEmail",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MasterPolicyResponseVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "checkForMasterPolicyValidityUsingGET": {
+                "description": "checkForMasterPolicyValidity",
+                "path": "/masterpolicy/isvalid/{mpRequestNo}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "mpRequestNo",
+                        "type": "path",
+                        "description": "mpRequestNo",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MasterPolicyResponseVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "saveMasterPolicyNotesUsingPOST": {
+                "description": "saveMasterPolicyNotes",
+                "path": "/masterpolicy/notes",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "masterPolicyNotesVO",
+                        "type": "body",
+                        "description": "masterPolicyNotesVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MasterPolicyNotesVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MasterPolicyResponseVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "createMasterPolicyUsingPOST": {
+                "description": "createMasterPolicy",
+                "path": "/masterpolicy/save",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "masterPolicyVO",
+                        "type": "body",
+                        "description": "masterPolicyVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MasterPolicyRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MasterPolicyRequestVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "retrieveMasterPolicyUsingGET": {
+                "description": "retrieveMasterPolicy",
+                "path": "/masterpolicy/{mpRequestNo}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "mpRequestNo",
+                        "type": "path",
+                        "description": "mpRequestNo",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "integer",
+                            "subType": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MasterPolicyRequestVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        },
+        "mi-delegated-resource": {
+            "saveMiDelegatedUsingPOST": {
+                "description": "saveMiDelegated",
+                "path": "/midelegated/save",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "mIDelegatedRequestVO",
+                        "type": "body",
+                        "description": "mIDelegatedRequestVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MIDelegatedRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MIDelegatedRequestVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        },
+        "rate-express-resource": {
+            "getQuoteUsingPOST": {
+                "description": "getQuote",
+                "path": "/rate/getquote",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "miRatesRequestWrapper",
+                        "type": "body",
+                        "description": "miRatesRequestWrapper",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MIRatesRequestWrapperVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MIRatesResponseWrapperVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "validateAndUpdateNmlsOrgAssociationUsingPOST": {
+                "description": "validateAndUpdateNmlsOrgAssociation",
+                "path": "/rate/identify",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "rateValidateRequestVO",
+                        "type": "body",
+                        "description": "rateValidateRequestVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "RateValidateRequestVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "RateValidateResponseVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "searchQuotesUsingPOST": {
+                "description": "searchQuotes",
+                "path": "/rate/quote/search",
+                "verb": "post",
+                "parameters": [
+                    {
+                        "name": "quoteSearchParamVO",
+                        "type": "body",
+                        "description": "quoteSearchParamVO",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "QuoteSearchParamVO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": true,
+                            "complex": "QuoteSearchResultsVO"
+                        }
+                    },
+                    "201": {},
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "searchQuoteByIdUsingGET": {
+                "description": "searchQuoteById",
+                "path": "/rate/quote/search/{quoteId}",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "quoteId",
+                        "type": "path",
+                        "description": "quoteId",
+                        "required": true,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "MIRatesResponseWrapperVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        },
+        "find-my-rep-resource": {
+            "findRepByIdUsingGET": {
+                "description": "findRepById",
+                "path": "/reps",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "query",
+                        "description": "id",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "SalesRepVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            },
+            "findMyRepsUsingGET": {
+                "description": "findMyReps",
+                "path": "/reps/search",
+                "verb": "get",
+                "parameters": [
+                    {
+                        "name": "state",
+                        "type": "query",
+                        "description": "state",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "zipcode",
+                        "type": "query",
+                        "description": "zipcode",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "type": "query",
+                        "description": "name",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    },
+                    {
+                        "name": "fetch",
+                        "type": "query",
+                        "description": "fetch",
+                        "required": false,
+                        "dataType": {
+                            "isArray": false,
+                            "primitive": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "dataType": {
+                            "isArray": false,
+                            "complex": "FindMyRepResultVO"
+                        }
+                    },
+                    "401": {},
+                    "403": {},
+                    "404": {}
+                }
+            }
+        }
+    },
     "models": {
         "QuoteSearchParamVO": {
             "emailId": {
@@ -2344,741 +3165,6 @@
             "underwritingTypeCode": {
                 "isArray": false,
                 "primitive": "string"
-            }
-        }
-    },
-    "services": {
-        "b-2-b-application-resource": {
-            "processApplicationDecisionPdfUsingGET": {
-                "description": "processApplicationDecisionPdf",
-                "path": "/b2b/application/decisionpdf/{dispositionType}/{commitmentNumber}/{gnwLoanNumber}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "dispositionType",
-                        "type": "path",
-                        "description": "dispositionType",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "commitmentNumber",
-                        "type": "path",
-                        "description": "commitmentNumber",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "gnwLoanNumber",
-                        "type": "path",
-                        "description": "gnwLoanNumber",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": true,
-                            "primitive": "string",
-                            "subType": "byte"
-                        }
-                    }
-                }
-            },
-            "processQuickSubmitApplicationUsingPOST": {
-                "description": "processQuickSubmitApplication",
-                "path": "/b2b/application/quicksubmit",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "quickSubmitVO",
-                        "type": "body",
-                        "description": "quickSubmitVO",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "QuickSubmitVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "QuickSubmitVO"
-                        }
-                    }
-                }
-            },
-            "getCapsDataUsingGET": {
-                "description": "getCapsData",
-                "path": "/b2b/application/quicksubmit/caps/{orgId}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "orgId",
-                        "type": "path",
-                        "description": "orgId",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "CapsDataVO"
-                        }
-                    }
-                }
-            },
-            "getDuplicateApplicationForOrgAndLenderLoanNumberUsingGET": {
-                "description": "getDuplicateApplicationForOrgAndLenderLoanNumber",
-                "path": "/b2b/application/quicksubmit/duplicate/{orgId}/{lenderLoanNumber}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "orgId",
-                        "type": "path",
-                        "description": "orgId",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "lenderLoanNumber",
-                        "type": "path",
-                        "description": "lenderLoanNumber",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": true,
-                            "complex": "DuplicateApplicationVO"
-                        }
-                    }
-                }
-            },
-            "lockApplicationUsingPOST": {
-                "description": "lockApplication",
-                "path": "/b2b/application/{commitmentNumber}/lock",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "commitmentNumber",
-                        "type": "path",
-                        "description": "commitmentNumber",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "userId",
-                        "type": "query",
-                        "description": "userId",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "ServiceStatusDTO"
-                        }
-                    }
-                }
-            },
-            "unlockApplicationUsingPOST": {
-                "description": "unlockApplication",
-                "path": "/b2b/application/{commitmentNumber}/unlock",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "commitmentNumber",
-                        "type": "path",
-                        "description": "commitmentNumber",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "ServiceStatusDTO"
-                        }
-                    }
-                }
-            },
-            "getPipelineApplicationsUsingGET": {
-                "description": "getPipelineApplications",
-                "path": "/b2b/application/{orgid}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "orgid",
-                        "type": "path",
-                        "description": "orgid",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "userid",
-                        "type": "query",
-                        "description": "userid",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "B2BPipelineVO"
-                        }
-                    }
-                }
-            },
-            "getPipelineApplicationUsingGET": {
-                "description": "getPipelineApplication",
-                "path": "/b2b/application/{source}/{referenceId}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "source",
-                        "type": "path",
-                        "description": "source",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "referenceId",
-                        "type": "path",
-                        "description": "referenceId",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "ApplicationDetailVO"
-                        }
-                    }
-                }
-            }
-        },
-        "city-address-resource": {
-            "getAllUSStatesUsingGET": {
-                "description": "getAllUSStates",
-                "path": "/b2b/application/postal/usa/states",
-                "verb": "get",
-                "parameters": [],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": true,
-                            "complex": "StateVO"
-                        }
-                    }
-                }
-            },
-            "getCityStateFromZipUsingGET": {
-                "description": "getCityStateFromZip",
-                "path": "/b2b/application/postal/{zipCode}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "zipCode",
-                        "type": "path",
-                        "description": "zipCode",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": true,
-                            "complex": "CityPostalVO"
-                        }
-                    }
-                }
-            }
-        },
-        "contract-service-agreement-resource": {
-            "checkForMasterPolicyUsingGET": {
-                "description": "checkForMasterPolicy",
-                "path": "/csagreement/isvalid",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "email",
-                        "type": "query",
-                        "description": "email",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "orgId",
-                        "type": "query",
-                        "description": "orgId",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "CSAgreementResponseVO"
-                        }
-                    }
-                }
-            },
-            "submitCSAgreemnetRequestUsingPOST": {
-                "description": "submitCSAgreemnetRequest",
-                "path": "/csagreement/submit",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "request",
-                        "type": "body",
-                        "description": "request",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "CSAgreementRequestVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "CSAgreementResponseVO"
-                        }
-                    }
-                }
-            }
-        },
-        "login-resource": {
-            "loginUsingPOST": {
-                "description": "login",
-                "path": "/login/request",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "loginDto",
-                        "type": "body",
-                        "description": "loginDto",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "LoginDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "ValidationResponseDTO"
-                        }
-                    }
-                }
-            }
-        },
-        "master-policy-request-resource": {
-            "sendMasterPolicyCompletionEmailUsingGET": {
-                "description": "sendMasterPolicyCompletionEmail",
-                "path": "/masterpolicy/completionEmail/{requesterEmail}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "requesterEmail",
-                        "type": "path",
-                        "description": "requesterEmail",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MasterPolicyResponseVO"
-                        }
-                    }
-                }
-            },
-            "checkForMasterPolicyValidityUsingGET": {
-                "description": "checkForMasterPolicyValidity",
-                "path": "/masterpolicy/isvalid/{mpRequestNo}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "mpRequestNo",
-                        "type": "path",
-                        "description": "mpRequestNo",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "integer",
-                            "subType": "int64"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MasterPolicyResponseVO"
-                        }
-                    }
-                }
-            },
-            "saveMasterPolicyNotesUsingPOST": {
-                "description": "saveMasterPolicyNotes",
-                "path": "/masterpolicy/notes",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "masterPolicyNotesVO",
-                        "type": "body",
-                        "description": "masterPolicyNotesVO",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "MasterPolicyNotesVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MasterPolicyResponseVO"
-                        }
-                    }
-                }
-            },
-            "createMasterPolicyUsingPOST": {
-                "description": "createMasterPolicy",
-                "path": "/masterpolicy/save",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "masterPolicyVO",
-                        "type": "body",
-                        "description": "masterPolicyVO",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "MasterPolicyRequestVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MasterPolicyRequestVO"
-                        }
-                    }
-                }
-            },
-            "retrieveMasterPolicyUsingGET": {
-                "description": "retrieveMasterPolicy",
-                "path": "/masterpolicy/{mpRequestNo}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "mpRequestNo",
-                        "type": "path",
-                        "description": "mpRequestNo",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "integer",
-                            "subType": "int64"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MasterPolicyRequestVO"
-                        }
-                    }
-                }
-            }
-        },
-        "mi-delegated-resource": {
-            "saveMiDelegatedUsingPOST": {
-                "description": "saveMiDelegated",
-                "path": "/midelegated/save",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "mIDelegatedRequestVO",
-                        "type": "body",
-                        "description": "mIDelegatedRequestVO",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "MIDelegatedRequestVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MIDelegatedRequestVO"
-                        }
-                    }
-                }
-            }
-        },
-        "rate-express-resource": {
-            "getQuoteUsingPOST": {
-                "description": "getQuote",
-                "path": "/rate/getquote",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "miRatesRequestWrapper",
-                        "type": "body",
-                        "description": "miRatesRequestWrapper",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "MIRatesRequestWrapperVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MIRatesResponseWrapperVO"
-                        }
-                    }
-                }
-            },
-            "validateAndUpdateNmlsOrgAssociationUsingPOST": {
-                "description": "validateAndUpdateNmlsOrgAssociation",
-                "path": "/rate/identify",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "rateValidateRequestVO",
-                        "type": "body",
-                        "description": "rateValidateRequestVO",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "RateValidateRequestVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "RateValidateResponseVO"
-                        }
-                    }
-                }
-            },
-            "searchQuotesUsingPOST": {
-                "description": "searchQuotes",
-                "path": "/rate/quote/search",
-                "verb": "post",
-                "parameters": [
-                    {
-                        "name": "quoteSearchParamVO",
-                        "type": "body",
-                        "description": "quoteSearchParamVO",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "complex": "QuoteSearchParamVO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": true,
-                            "complex": "QuoteSearchResultsVO"
-                        }
-                    }
-                }
-            },
-            "searchQuoteByIdUsingGET": {
-                "description": "searchQuoteById",
-                "path": "/rate/quote/search/{quoteId}",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "quoteId",
-                        "type": "path",
-                        "description": "quoteId",
-                        "required": true,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "MIRatesResponseWrapperVO"
-                        }
-                    }
-                }
-            }
-        },
-        "find-my-rep-resource": {
-            "findRepByIdUsingGET": {
-                "description": "findRepById",
-                "path": "/reps",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "type": "query",
-                        "description": "id",
-                        "required": false,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "SalesRepVO"
-                        }
-                    }
-                }
-            },
-            "findMyRepsUsingGET": {
-                "description": "findMyReps",
-                "path": "/reps/search",
-                "verb": "get",
-                "parameters": [
-                    {
-                        "name": "state",
-                        "type": "query",
-                        "description": "state",
-                        "required": false,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "zipcode",
-                        "type": "query",
-                        "description": "zipcode",
-                        "required": false,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "name",
-                        "type": "query",
-                        "description": "name",
-                        "required": false,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    },
-                    {
-                        "name": "fetch",
-                        "type": "query",
-                        "description": "fetch",
-                        "required": false,
-                        "dataType": {
-                            "isArray": false,
-                            "primitive": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "success": {
-                        "200": {
-                            "isArray": false,
-                            "complex": "FindMyRepResultVO"
-                        }
-                    }
-                }
             }
         }
     }
