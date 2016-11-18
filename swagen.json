@@ -2,6 +2,8 @@
     "swagger1": {
         "file": "./samples/sources/swagger.json",
         "output": "./samples/outputs/swagger.ts",
+        "generator": "ng2-http",
+        "language": "typescript",
         "debug": {
             "definition": "./samples/definitions/swagger.json"
         }
@@ -9,6 +11,7 @@
     "swagger2": {
         "file": "./samples/sources/swagger2.json",
         "output": "./samples/outputs/swagger2.ts",
+        "generator": "ng2-http",
         "debug": {
             "definition": "./samples/definitions/swagger2.json"
         }
@@ -16,6 +19,7 @@
     "swagger3": {
         "file": "./samples/sources/swagger3.json",
         "output": "./samples/outputs/swagger3.ts",
+        "generator": "ng2-http",
         "debug": {
             "definition": "./samples/definitions/swagger3.json"
         },
@@ -30,6 +34,7 @@
     "petstore": {
         "url": "http://petstore.swagger.io/v2/swagger.json",
         "output": "./samples/outputs/petstore.ts",
+        "generator": "ng2-http",
         "debug": {
             "definition": "./samples/definitions/petstore.json"
         }

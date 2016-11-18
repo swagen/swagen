@@ -2,12 +2,14 @@
 
 'use strict';
 
-let process = require('process');
-let path = require('path');
-let fs = require('fs');
-let http = require('http');
+const process = require('process');
+const path = require('path');
+const fs = require('fs');
+const http = require('http');
 
-let chalk = require('chalk');
+const chalk = require('chalk');
+
+const cli = require('./lib/cli');
 
 let currentDir = process.cwd();
 
@@ -85,12 +87,22 @@ function handleSwagger(swagger, profile) {
     if (profile.debug.definition) {
         let definitionJson = JSON.stringify(definition, null, 4);
         fs.writeFileSync(path.resolve(currentDir, profile.debug.definition), definitionJson, 'utf8');
-        console.log(chalk.blue(`[debug] Definition file written to '${profile.debug.definition}'.`))
+        cli.debug(`Definition file written to '${profile.debug.definition}'.`);
     }
 
-    let Generator = require('./lib/generator');
-    let generator = new Generator(definition, profile);
-    let output = generator.generate();
+    let output;
+    if (!profile.generator) {
+        let Generator = require('./lib/generator');
+        let generator = new Generator(definition, profile);
+        output = generator.generate();
+    } else {
+        try {
+            let generatorPkg = require(`swagen-${profile.generator}`);
+            output = generatorPkg.generate(profile.language, definition, profile);
+        } catch (e) {
+            console.log(chalk.red(e));
+        }
+    }
 
     let outputFilePath = path.resolve(currentDir, profile.output);
     fs.writeFileSync(path.resolve(currentDir, outputFilePath), output, 'utf8');
