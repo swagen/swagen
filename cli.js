@@ -10,6 +10,8 @@ const http = require('http');
 const chalk = require('chalk');
 
 const cli = require('./lib/cli');
+const Generator = require('./lib/generator1');
+const Parser = require('./lib/parser');
 
 let currentDir = process.cwd();
 
@@ -81,7 +83,6 @@ function handleSwagger(swagger, profile) {
         swagger = JSON.parse(swagger);
     }
 
-    let Parser = require('./lib/parser');
     let parser = new Parser(swagger);
     let definition = parser.parse();
     if (profile.debug.definition) {
@@ -92,7 +93,6 @@ function handleSwagger(swagger, profile) {
 
     let output;
     if (!profile.generator) {
-        let Generator = require('./lib/generator');
         let generator = new Generator(definition, profile);
         output = generator.generate();
     } else {
