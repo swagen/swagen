@@ -1,27 +1,29 @@
 {
-    "name": "swagen",
-    "version": "0.0.3",
-    "description": "Client code generator for Swagger JSON",
-    "main": "cli.js",
-    "scripts": {
-        "start": "node cli.js"
-    },
-    "bin": {
-        "swagen": "./cli.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/angular-template/swagger-client.git"
-    },
-    "author": "Angular Template",
-    "license": "Apache-2.0",
-    "bugs": {
-        "url": "https://github.com/angular-template/swagger-client/issues"
-    },
-    "homepage": "https://github.com/angular-template/swagger-client#readme",
-    "dependencies": {
-        "chalk": "^1.1.3",
-        "lodash": "^4.17.0"
-    },
-    "devDependencies": {}
+  "name": "swagen",
+  "version": "0.0.10",
+  "description": "Client code generator for Swagger JSON",
+  "main": "cli.js",
+  "scripts": {
+    "start": "node cli.js",
+    "bump": "npm version patch --no-git-tag-version",
+    "bumppub": "npm run bump && npm publish"
+  },
+  "bin": {
+    "swagen": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular-template/swagger-client.git"
+  },
+  "author": "Angular Template",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/angular-template/swagger-client/issues"
+  },
+  "homepage": "https://github.com/angular-template/swagger-client#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "lodash": "^4.17.0"
+  },
+  "devDependencies": {}
 }

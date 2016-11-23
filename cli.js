@@ -13,10 +13,10 @@ const cli = require('./lib/cli');
 const Generator = require('./lib/generator1');
 const Parser = require('./lib/parser');
 
-let currentDir = process.cwd();
+const currentDir = process.cwd();
 
-const configScriptFileName = 'swagen.js';
-const configJsonFileName = 'swagen.json';
+const configScriptFileName = 'swagenfile.js';
+const configJsonFileName = 'swagenfile.json';
 
 function getConfig() {
     let configScript = path.resolve(currentDir, configScriptFileName);
@@ -29,7 +29,7 @@ function getConfig() {
         return require(configJson);
     }
 
-    throw new Error('Please specify a swagen.js or swagen.json file to configure the swagen tool.');
+    throw `Specify a ${configScriptFileName} or ${configJsonFileName} file to configure the swagen tool.`;
 }
 
 function processInputs(config) {
@@ -96,15 +96,15 @@ function handleSwagger(swagger, profile) {
         let generator = new Generator(definition, profile);
         output = generator.generate();
     } else {
-        try {
-            let generatorPkg = require(`swagen-${profile.generator}`);
-            output = generatorPkg.generate(profile.language, definition, profile);
-        } catch (e) {
-            console.log(chalk.red(e));
-        }
+        let generatorPkg = require(`swagen-${profile.generator}`);
+        output = generatorPkg.generate(profile.language, definition, profile);
     }
 
     let outputFilePath = path.resolve(currentDir, profile.output);
     fs.writeFileSync(path.resolve(currentDir, outputFilePath), output, 'utf8');
     console.log(chalk.green(`Code generated at '${outputFilePath}'.`))
 }
+
+module.exports = {
+    Transformer: require('./lib/generator/transformer')
+};

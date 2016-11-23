@@ -1,0 +1,45 @@
+{
+    "swagger1": {
+        "file": "./samples/sources/swagger.json",
+        "output": "./samples/outputs/swagger.ts",
+        "language": "typescript",
+        "debug": {
+            "definition": "./samples/definitions/swagger.json"
+        }
+    },
+    "swagger2": {
+        "file": "./samples/sources/swagger2.json",
+        "output": "./samples/outputs/swagger2.ts",
+        "debug": {
+            "definition": "./samples/definitions/swagger2.json"
+        },
+        "transforms": {
+            "serviceName": "pascalCase"
+        }
+    },
+    "swagger3": {
+        "file": "./samples/sources/swagger3.json",
+        "output": "./samples/outputs/swagger3.ts",
+        "debug": {
+            "definition": "./samples/definitions/swagger3.json"
+        }
+    },
+    "swagger4": {
+        "file": "./samples/sources/swagger4.json",
+        "output": "./samples/outputs/swagger4.ts",
+        "debug": {
+            "definition": "./samples/definitions/swagger4.json"
+        },
+        "transforms": {
+            "serviceName": "pascalCase",
+            "operationName": "camelCase"
+        }
+    },
+    "petstore": {
+        "url": "http://petstore.swagger.io/v2/swagger.json",
+        "output": "./samples/outputs/petstore.ts",
+        "debug": {
+            "definition": "./samples/definitions/petstore.json"
+        }
+    }
+}
