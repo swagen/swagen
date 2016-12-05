@@ -4,23 +4,28 @@ CLI tool to generate client-side code based on Swagger definitions.
 ## Getting Started
 > This section discusses installing the Swagen tool globally. We will also discuss installing it locally in your project to avoid global dependencies.
 
-Install the Swagen CLI tool globally
 ```sh
+# Install Swagen CLI
 npm install -g swagen
-```
 
-Install the generator(s) you wish to use. In this section, we'll use the `swagen-ng1-http` generator which generates Typescript code for the Angular 1.x `$http` service.
-```sh
+# Install a generator
 npm install -g swagen-ng1-http
 ```
 
-In the root folder, create the Swagen configuration:
+In the root folder, create the Swagen configuration file (`swagen.config.js`):
 ```javascript
 var petstore = {
+    // Location of the Swagger JSON
     url: 'http://petstore.swagger.io/v2/swagger.json',
+    
+    // Location of the generated file
     output: './app/webservices/petstore.services.ts',
+    
+    // Generator and language to use
     generator: 'ng1-http',
     language: 'typescript',
+    
+    // Options to 
     transforms: {
         serviceName: 'pascalCase',
         operationName: 'camelCase'
