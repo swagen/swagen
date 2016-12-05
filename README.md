@@ -54,7 +54,7 @@ swagen
 ```
 
 ### Further reading
-[[Installing Swagen locally in your project.|Installing-Swagen-locally-in-your-project]]
+[Installing Swagen locally in your project](https://github.com/angular-template/swagger-client/wiki/Installing-Swagen-locally-in-your-project)
 
 ## Generators
 Swagen uses an ecosystem of generators to perform the actual code generation. Each generator is a Node package named `swagen-xxxx` where `xxxx` is the name of the generator. Examples are `swagen-ng1-http` or `swagen-dotnet`. Having a concept of generator packages allows 3rd-parties to write their own generators and plug them into the tool.
