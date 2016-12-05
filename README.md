@@ -25,6 +25,7 @@ var petstore = {
         serviceName: 'pascalCase',
         operationName: 'camelCase'
     },
+    // Options specific to the generator package
     options: {
         moduleName: 'common',
         baseUrl: {
@@ -33,8 +34,8 @@ var petstore = {
             path: ['apiBaseUrl']
         },
         namespaces: {
-            services: 'common.webservices',
-            models: 'common.webservices'
+            services: 'app.webservices',
+            models: 'app.webservices'
         },
         references: [
             '../../../../typings/index.d.ts',
@@ -47,6 +48,13 @@ module.exports = {
 };
 ```
 
+To run Swagen and generate the client-side code, simply run `swagen` from the command-line in the same folder as the config.
+```sh
+swagen
+```
+
+TBD: Installing Swagen locally in your project.
+
 ## Generators
 Swagen uses an ecosystem of generators to perform the actual code generation. Each generator is a Node package named `swagen-xxxx` where `xxxx` is the name of the generator. Examples are `swagen-ng1-http` or `swagen-dotnet`. Having a concept of generator packages allows 3rd-parties to write their own generators and plug them into the tool.
 
@@ -54,3 +62,7 @@ TBD: Writing a generator.
 
 ## Configuration
 Swagen configuration is specified in a JavaScript file called `swagen.config.js`, typically located at the root of your project.
+
+TBD: Configuration file options
+TBD: Writing configuration in JSON instead of JavaScript
+TBD: Writing configuration in Typescript instead of JavaScript
