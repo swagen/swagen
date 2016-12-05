@@ -10,6 +10,11 @@ npm install -g swagen
 
 # Install a generator
 npm install -g swagen-ng1-http
+
+# Create configuration file (see below)
+
+# Run swagen
+swagen
 ```
 
 In the root folder, create the Swagen configuration file (`swagen.config.js`):
@@ -25,11 +30,12 @@ var petstore = {
     generator: 'ng1-http',
     language: 'typescript',
     
-    // Options to 
+    // Options to change identifiers in the generated code
     transforms: {
         serviceName: 'pascalCase',
         operationName: 'camelCase'
     },
+    
     // Options specific to the generator package
     options: {
         moduleName: 'common',
@@ -53,11 +59,6 @@ module.exports = {
 };
 ```
 
-To run Swagen and generate the client-side code, simply run `swagen` from the command-line in the same folder as the config.
-```sh
-swagen
-```
-
 ### Further reading
 [Installing Swagen locally in your project](https://github.com/angular-template/swagger-client/wiki/Installing-Swagen-locally-in-your-project)
 
@@ -68,7 +69,12 @@ TBD: Writing a generator.
 
 ## Configuration
 Swagen configuration is specified in a JavaScript file called `swagen.config.js`, typically located at the root of your project.
+The `swagen.config.js` file exports a object literal, where each property represents one Swagger source that needs to be converted to code.
 
+The available options for a single property are:
+```javascript
+
+```
 TBD: Configuration file options
 TBD: Writing configuration in JSON instead of JavaScript
 TBD: Writing configuration in Typescript instead of JavaScript
