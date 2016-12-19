@@ -1,11 +1,12 @@
 {
   "name": "swagen",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Client code generator for Swagger JSON",
   "main": "cli.js",
   "scripts": {
     "bump": "npm version patch --no-git-tag-version",
-    "bumppub": "npm run bump && npm publish"
+    "bumppub": "npm run bump && npm publish",
+    "update-core": "npm un --save swagen-core && npm i --save swagen-core"
   },
   "bin": {
     "swagen": "./cli.js"
@@ -22,7 +23,8 @@
   },
   "homepage": "https://github.com/angular-template/swagger-client#readme",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "lodash": "^4.17.0"
+    "lodash": "^4.17.0",
+    "needle": "^1.4.2",
+    "swagen-core": "0.0.3"
   }
 }

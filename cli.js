@@ -7,9 +7,9 @@ const path = require('path');
 const fs = require('fs');
 const http = require('http');
 
-const chalk = require('chalk');
+const needle = require('needle')
 
-const cli = require('./lib/cli');
+const cli = require('swagen-core').cli;
 const Parser = require('./lib/parser');
 
 const currentDir = process.cwd();
@@ -50,7 +50,7 @@ function processInputs(config) {
 
         if (profile.file) {
             let inputFilePath = path.resolve(currentDir, profile.file);
-            console.log(chalk.green(`[${profileKey}] Input swagger file : ${inputFilePath}`));
+            cli.info(`[${profileKey}] Input swagger file : ${inputFilePath}`);
             fs.readFile(inputFilePath, 'utf8', function(error, swagger) {
                 if (error) {
                     throw error;
@@ -58,18 +58,24 @@ function processInputs(config) {
                 handleSwagger(swagger, profile, profileKey);
             });
         } else {
-            console.log(chalk.green(`[${profileKey}] Input swagger URL : ${profile.url}`));
+            cli.info(`[${profileKey}] Input swagger URL : ${profile.url}`);
             let swagger = '';
-            let request = http.request(profile.url, function(response) {
-                response.setEncoding('utf8');
-                response.on('data', function(chunk) {
-                    swagger += chunk;
-                });
-                response.on('end', function() {
-                    handleSwagger(swagger, profile, profileKey);
-                });
+            // let request = http.request(profile.url, function(response) {
+            //     response.setEncoding('utf8');
+            //     response.on('data', function(chunk) {
+            //         swagger += chunk;
+            //     });
+            //     response.on('end', function() {
+            //         handleSwagger(swagger, profile, profileKey);
+            //     });
+            // });
+            // request.end();
+            needle.get(profile.url, function(err, resp, body) {
+                if (err) {
+                    throw new Error(`Cannot read swagger URL. Error ${err}`);
+                }
+                handleSwagger(body, profile, profileKey)
             });
-            request.end();
         }
     }
 }
@@ -95,18 +101,20 @@ function handleSwagger(swagger, profile, profileKey) {
         let generator = new Generator(definition, profile);
         output = generator.generate();
     } else {
+        if (profile.generator.toLowerCase() === 'core') {
+            throw new Error(`Invalid generator ${profile.generator}. This name is reserved.`);
+        }
+        if (profile.generator.match(/^[\w\-]+-language$/i)) {
+            throw new Error(`Invalid generator ${profile.generator}. The -language suffix is reserved for language helper packages.`);
+        }
         let generatorPkg = require(`swagen-${profile.generator}`);
         if (typeof generatorPkg.validateProfile === 'function') {
-            generatorPkg.validateProfile(profile.language, profile);
+            generatorPkg.validateProfile(profile);
         }
-        output = generatorPkg.generate(profile.language, definition, profile);
+        output = generatorPkg.generate(definition, profile);
     }
 
     let outputFilePath = path.resolve(currentDir, profile.output);
     fs.writeFileSync(path.resolve(currentDir, outputFilePath), output, 'utf8');
-    console.log(chalk.green(`[${profileKey}] Code generated at '${outputFilePath}'.`))
+    cli.info(`[${profileKey}] Code generated at '${outputFilePath}'.`);
 }
-
-module.exports = {
-    Transformer: require('./lib/transformers/transformer')
-};

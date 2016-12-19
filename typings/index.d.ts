@@ -21,9 +21,10 @@ declare namespace swagen {
         generator: string;
 
         /**
-         * Optional output language, in cases where the generator supports multiple languages.
+         * Optional output mode, in cases where the generator supports multiple types of output.
+         * Typically, the mode is the output language, but could denote any aspect of the output.
          */
-        language?: string;
+        mode?: string;
 
         /**
          * Debug configurations
@@ -53,4 +54,17 @@ declare namespace swagen {
 
     type ServiceNameTransformFn = (serviceName: string, details: any) => string;
     type OperationNameTransformFn = (operationName: string, details: any) => string;
+
+    interface SupportedMode {
+        name: string;
+        description: string;
+        language: string;
+    }
+
+    interface IGenerator<TOptions> {
+        supportedModes: SupportedMode[];
+        generate(definition: any, profile: Profile<TOptions>): string;
+        getDefaultOptions(mode: string): TOptions;
+        validateProfile(profile: Profile<TOptions>): void;
+    }
 }

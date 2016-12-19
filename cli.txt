@@ -1,0 +1,7 @@
+swagen
+
+swagen init [--generator <generator>] [--mode <mode>]
+
+swagen definition [--file <file>] [--url <url>] --generator <generator> [--mode <mode>] <definition file>
+
+swagen modes <generator>
