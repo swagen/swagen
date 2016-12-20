@@ -1,8 +1,9 @@
 {
   "name": "swagen",
-  "version": "0.0.20",
+  "version": "0.0.24",
   "description": "Client code generator for Swagger JSON",
   "main": "cli.js",
+  "preferGlobal": true,
   "scripts": {
     "bump": "npm version patch --no-git-tag-version",
     "bumppub": "npm run bump && npm publish",
@@ -25,6 +26,6 @@
   "dependencies": {
     "lodash": "^4.17.0",
     "needle": "^1.4.2",
-    "swagen-core": "0.0.3"
+    "swagen-core": "0.0.9"
   }
 }

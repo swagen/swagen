@@ -59,17 +59,6 @@ function processInputs(config) {
             });
         } else {
             cli.info(`[${profileKey}] Input swagger URL : ${profile.url}`);
-            let swagger = '';
-            // let request = http.request(profile.url, function(response) {
-            //     response.setEncoding('utf8');
-            //     response.on('data', function(chunk) {
-            //         swagger += chunk;
-            //     });
-            //     response.on('end', function() {
-            //         handleSwagger(swagger, profile, profileKey);
-            //     });
-            // });
-            // request.end();
             needle.get(profile.url, function(err, resp, body) {
                 if (err) {
                     throw new Error(`Cannot read swagger URL. Error ${err}`);
