@@ -26,6 +26,6 @@
   "dependencies": {
     "lodash": "^4.17.0",
     "needle": "^1.4.2",
-    "swagen-core": "0.0.12"
+    "swagen-core": "0.0.13"
   }
 }
