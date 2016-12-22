@@ -9,8 +9,8 @@ const http = require('http');
 
 const needle = require('needle')
 
-const cli = require('swagen-core').cli;
-const Parser = require('./lib/parser');
+const swagenCore = require('swagen-core');
+const cli = swagenCore.cli;
 
 const currentDir = process.cwd();
 
@@ -77,7 +77,7 @@ function handleSwagger(swagger, profile, profileKey) {
         swagger = JSON.parse(swagger);
     }
 
-    let parser = new Parser(swagger);
+    let parser = new swagenCore.Parser(swagger);
     let definition = parser.parse();
     if (profile.debug.definition) {
         let definitionJson = JSON.stringify(definition, null, 4);
