@@ -11,7 +11,9 @@ npm install -g swagen
 # Install a generator
 npm install -g swagen-ng1-http
 
-# Create configuration file (see below)
+# Create configuration file
+# This will ask you some questions and create a swagen.config.js file in the local directory.
+swagen init
 
 # Run swagen
 swagen
