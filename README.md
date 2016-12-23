@@ -13,51 +13,58 @@ npm install -g swagen-ng1-http
 
 # Create configuration file
 # This will ask you some questions and create a swagen.config.js file in the local directory.
-swagen init
+swagen init --generator ng1-http --mode typescript
 
 # Run swagen
 swagen
 ```
 
-In the root folder, create the Swagen configuration file (`swagen.config.js`):
+The Swagen configuration file (`swagen.config.js`) has the following structure:
 ```javascript
-var petstore = {
-    // Location of the Swagger JSON
-    url: 'http://petstore.swagger.io/v2/swagger.json',
-    
-    // Location of the generated file
-    output: './app/webservices/petstore.services.ts',
-    
-    // Generator and language to use
-    generator: 'ng1-http',
-    language: 'typescript',
-    
-    // Options to change identifiers in the generated code
-    transforms: {
-        serviceName: 'pascalCase',
-        operationName: 'camelCase'
-    },
-    
-    // Options specific to the generator package
-    options: {
-        moduleName: 'common',
-        baseUrl: {
-            provider: 'app.IConfig',
-            variable: 'config',
-            path: ['apiBaseUrl']
-        },
-        namespaces: {
-            services: 'app.webservices',
-            models: 'app.webservices'
-        },
-        references: [
-            '../../../../typings/index.d.ts',
-            '../../../../typings/app.d.ts'
-        ]
-};
-
 module.exports = {
-    petstore: petstore
+    api: {
+        // Location of the Swagger JSON
+        url: 'http://petstore.swagger.io/v2/swagger.json',
+
+        // Location of the generated file
+        output: './app/webservices/petstore.services.ts',
+
+        // Generator to use
+        // This is the name of the generator package without the swagen- prefix.
+        generator: 'ng1-http',
+
+        // Optional mode, if the generator supports multiple modes.
+        mode: 'typescript',
+
+        // Options to change identifiers in the generated code
+        // Transforms can be predefined names like camelCase or functions with custom logic
+        transforms: {
+            serviceName: function(name, details) {
+                // Example: Remove the prefix 'api' from the service name
+                return name.replace(/^api(\w+)$/, '$1');
+            },
+            operationName: 'camelCase',
+            modelName: 'pascalCase',
+            propertyName: undefined
+        },
+
+        // Options specific to the generator package and selected mode.
+        options: {
+            moduleName: 'common',
+            baseUrl: {
+                provider: 'app.IConfig',
+                variable: 'config',
+                path: ['apiBaseUrl']
+            },
+            namespaces: {
+                services: 'app.webservices',
+                models: 'app.webservices'
+            },
+            references: [
+                '../../../../typings/index.d.ts',
+                '../../../../typings/app.d.ts'
+            ]
+    }
 };
 ```
 
