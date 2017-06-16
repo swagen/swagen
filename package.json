@@ -28,6 +28,6 @@
     "lodash": "^4.17.4",
     "minimist": "^1.2.0",
     "needle": "^1.4.2",
-    "swagen-core": "0.0.19"
+    "swagen-core": "0.0.20"
   }
 }
