@@ -1,6 +1,6 @@
 {
   "name": "swagen",
-  "version": "0.0.58",
+  "version": "0.0.59",
   "description": "Client code generator for Swagger JSON",
   "main": "cli.js",
   "preferGlobal": true,
