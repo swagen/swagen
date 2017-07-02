@@ -26,6 +26,7 @@ try {
     commandModule = require(`./lib/${command}`);
 } catch (ex) {
     cli.error(`Invalid command: '${command}'`);
+    cli.error(ex);
     helpCommand();
 }
 if (commandModule) {
