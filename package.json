@@ -32,7 +32,7 @@
         "lodash": "^4.17.4",
         "minimist": "^1.2.0",
         "needle": "^2.0.0",
-        "swagen-core": "^1.0.0-beta.5"
+        "swagen-core": "^1.0.0-beta.6"
     },
     "devDependencies": {
         "eslint": "^4.8.0"
