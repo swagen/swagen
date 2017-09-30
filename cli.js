@@ -3,16 +3,14 @@
 'use strict';
 
 const process = require('process');
+const chalk = require('chalk');
 const minimist = require('minimist');
 const _ = require('lodash');
 
-const swagenCore = require('swagen-core');
-const cli = swagenCore.cli;
-
 const helpCommand = require('./lib/help');
 
-let allArgs = process.argv;
-let argsCount = _.endsWith(allArgs[0].toLowerCase(), 'node.exe') ? 3 : 2;
+const allArgs = process.argv;
+const argsCount = _.endsWith(allArgs[0].toLowerCase(), 'node.exe') ? 3 : 2;
 
 let command = 'generate';
 let argv = {};
@@ -25,8 +23,8 @@ let commandModule;
 try {
     commandModule = require(`./lib/${command}`);
 } catch (ex) {
-    cli.error(`Invalid command: '${command}'`);
-    cli.error(ex);
+    console.log(chalk.red(`Invalid command: '${command}'`));
+    console.log(chalk.red(ex));
     helpCommand();
 }
 if (commandModule) {

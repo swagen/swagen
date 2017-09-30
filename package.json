@@ -1,33 +1,40 @@
 {
-  "name": "swagen",
-  "version": "1.0.0-beta.5",
-  "description": "Client code generator for Swagger JSON",
-  "main": "cli.js",
-  "preferGlobal": true,
-  "scripts": {
-    "bump": "npm version prerelease --no-git-tag-version",
-    "update": "npm un --save swagen-core && npm i --save swagen-core",
-    "postpublish": "npm run bump"
-  },
-  "bin": {
-    "swagen": "./cli.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angular-template/swagger-client.git"
-  },
-  "typings": "typings/index.d.ts",
-  "author": "Swagen",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/angular-template/swagger-client/issues"
-  },
-  "homepage": "https://github.com/angular-template/swagger-client#readme",
-  "dependencies": {
-    "inquirer": "^3.2.2",
-    "lodash": "^4.17.4",
-    "minimist": "^1.2.0",
-    "needle": "^2.0.0",
-    "swagen-core": "^1.0.0-beta.2"
-  }
+    "name": "swagen",
+    "version": "1.0.0-beta.5",
+    "description": "Client code generator for Swagger JSON",
+    "main": "cli.js",
+    "preferGlobal": true,
+    "scripts": {
+        "update": "npm un --save swagen-core && npm i --save swagen-core",
+        "lint": "eslint ./**/*.js",
+        "bump": "npm version prerelease --no-git-tag-version",
+        "prepublishOnly": "npm run lint",
+        "postpublish": "npm run bump"
+    },
+    "bin": {
+        "swagen": "./cli.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/angular-template/swagger-client.git"
+    },
+    "typings": "typings/index.d.ts",
+    "author": "Swagen",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/angular-template/swagger-client/issues"
+    },
+    "homepage": "https://github.com/angular-template/swagger-client#readme",
+    "dependencies": {
+        "chalk": "^2.1.0",
+        "codewriter": "^1.2.0",
+        "inquirer": "^3.2.2",
+        "lodash": "^4.17.4",
+        "minimist": "^1.2.0",
+        "needle": "^2.0.0",
+        "swagen-core": "^1.0.0-beta.4"
+    },
+    "devDependencies": {
+        "eslint": "^4.8.0"
+    }
 }
