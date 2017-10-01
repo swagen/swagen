@@ -48,12 +48,18 @@ declare namespace swagen {
     }
 
     interface Transforms {
-        serviceName?: string | ServiceNameTransformFn;
-        operationName?: string | OperationNameTransformFn;
+        serviceName?: string | ServiceNameTransformFn | (string | ServiceNameTransformFn)[];
+        operationName?: string | OperationNameTransformFn | (string | OperationNameTransformFn)[];
+        modelName?: string | ModelNameTransformFn | (string | ModelNameTransformFn)[];
+        propertyName?: string | PropertyNameTransformFn | (string | PropertyNameTransformFn)[];
+        parameterName?: string | ParameterNameTransformFn | (string | ParameterNameTransformFn)[];
     }
 
     type ServiceNameTransformFn = (serviceName: string, details: any) => string;
     type OperationNameTransformFn = (operationName: string, details: any) => string;
+    type ModelNameTransformFn = (modelName: string, details: any) => string;
+    type PropertyNameTransformFn = (propertyName: string, details: any) => string;
+    type ParameterNameTransformFn = (parameterName: string, details: any) => string;
 
     interface SupportedMode {
         name: string;
