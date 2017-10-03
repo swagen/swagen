@@ -33,7 +33,7 @@ declare namespace swagen {
             /**
              * If specified, writes an internal JSON representation of the parsed Swagger JSON to the specified file
              */
-            definition?: string;
+            definition: string;
         };
 
         /**
