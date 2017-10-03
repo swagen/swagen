@@ -3,6 +3,7 @@
     "version": "1.0.0-beta.15",
     "description": "Client code generator for Swagger JSON",
     "main": "cli.js",
+    "typings": "typings/index.d.ts",
     "preferGlobal": true,
     "scripts": {
         "lint": "eslint ./**/*.js",
@@ -17,7 +18,6 @@
         "type": "git",
         "url": "git+https://github.com/angular-template/swagger-client.git"
     },
-    "typings": "typings/index.d.ts",
     "author": "Swagen",
     "license": "Apache-2.0",
     "bugs": {

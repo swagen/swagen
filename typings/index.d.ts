@@ -1,4 +1,20 @@
 declare namespace swagen {
+    interface IGenerator<TOptions> {
+        supportedModes: SupportedMode<TOptions>[];
+        generate(definition: Definition, profile: Profile<TOptions>): string;
+        getDefaultOptions(mode: string): TOptions;
+        validateProfile(profile: Profile<TOptions>): void;
+    }
+
+    interface SupportedMode<TOptions> {
+        name: string;
+        description: string;
+        language: string;
+        extension: string;
+        prompts: any[];
+        configBuilderFn: (options: TOptions, answers: {[key: string]: Object}, generalAnswers?: {[key: string]: Object}) => void;
+    }
+
     interface Profile<TOptions> {
         /**
          * URL to retrieve the Swagger JSON.
@@ -48,29 +64,82 @@ declare namespace swagen {
     }
 
     interface Transforms {
-        serviceName?: string | ServiceNameTransformFn | (string | ServiceNameTransformFn)[];
-        operationName?: string | OperationNameTransformFn | (string | OperationNameTransformFn)[];
         modelName?: string | ModelNameTransformFn | (string | ModelNameTransformFn)[];
-        propertyName?: string | PropertyNameTransformFn | (string | PropertyNameTransformFn)[];
+        operationName?: string | OperationNameTransformFn | (string | OperationNameTransformFn)[];
         parameterName?: string | ParameterNameTransformFn | (string | ParameterNameTransformFn)[];
+        propertyName?: string | PropertyNameTransformFn | (string | PropertyNameTransformFn)[];
+        serviceName?: string | ServiceNameTransformFn | (string | ServiceNameTransformFn)[];
     }
 
-    type ServiceNameTransformFn = (serviceName: string, details: any) => string;
-    type OperationNameTransformFn = (operationName: string, details: any) => string;
-    type ModelNameTransformFn = (modelName: string, details: any) => string;
-    type PropertyNameTransformFn = (propertyName: string, details: any) => string;
+    type ModelNameTransformFn = (modelName: string, details: ModelTransformDetails) => string;
+    type OperationNameTransformFn = (operationName: string, details: OperationTransformDetails) => string;
     type ParameterNameTransformFn = (parameterName: string, details: any) => string;
+    type PropertyNameTransformFn = (propertyName: string, details: PropertyTransformDetails) => string;
+    type ServiceNameTransformFn = (serviceName: string, details: ServiceTransformDetails) => string;
 
-    interface SupportedMode {
-        name: string;
-        description: string;
-        language: string;
+    interface ModelTransformDetails {
+        modelType: 'complex'|'enum';
+        model: ModelDefinition;
     }
 
-    interface IGenerator<TOptions> {
-        supportedModes: SupportedMode[];
-        generate(definition: any, profile: Profile<TOptions>): string;
-        getDefaultOptions(mode: string): TOptions;
-        validateProfile(profile: Profile<TOptions>): void;
+    interface OperationTransformDetails extends ServiceTransformDetails {
+        serviceName: string;
+        operation: OperationDefinition;
+    }
+
+    interface ParameterTransformDetails extends OperationTransformDetails {
+        operationName: string;
+        parameters: ParameterDefinition[];
+    }
+
+    interface PropertyTransformDetails extends ModelTransformDetails {
+        modelName: string;
+        property: PropertyDefinition;
+    }
+
+    interface ServiceTransformDetails {
+        service: ServiceDefinition;
+    }
+
+    interface Definition {
+        metadata: {
+            title: string;
+            description: string;
+            baseUrl: string;
+        };
+        services?: {[serviceName: string]: ServiceDefinition};
+        models?: {[modelName: string]: ModelDefinition};
+        enums?: {[enumName: string]: string[]};
+    }
+
+    type ServiceDefinition = {[operationName: string]: OperationDefinition};
+
+    interface OperationDefinition {
+        path: string;
+        verb: 'get'|'post'|'put'|'delete'|'patch'|'head';
+        parameters: ParameterDefinition[];
+        responses: {[statusCode: string]: ResponseDefinition};
+    }
+
+    interface ParameterDefinition {
+        name: string;
+        type: 'path'|'query'|'body'|'header';
+        required: boolean;
+        dataType: DataType;
+    }
+
+    interface ResponseDefinition {
+        dataType: DataType;
+    }
+
+    type ModelDefinition = {[propertyName: string] : DataType};
+
+    interface DataType {
+        primitive?: string;
+        subType?: string;
+        complex?: string;
+        enum?: string;
+        isArray: boolean;
+        required: string;
     }
 }
