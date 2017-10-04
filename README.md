@@ -27,6 +27,7 @@ swagen
 ## Generators
 Swagen is a pluggable tool that uses generators plug-ins to perform the actual code generation. Each generator is a Node package following a naming convention of `swagen-xxxx` where `xxxx` is the name of the generator. Examples are `swagen-angular` or `swagen-dotnet-httpclient`. Having a concept of generator packages allows 3rd-parties to write their own generators and plug them into the tool.
 
+### Further reading
 TBD: Writing a generator package.
 
 TBD: Writing local generators
@@ -40,8 +41,12 @@ swagen init
 ```
 This is an interactive command and ask you a series of questions before generating a `swagen.config.json` file in the current directory. In case a `swagen.config.json` file already exists in the current directory, it will add a new configuration to the existing file. A single `swagen.config.json` file can contain multiple configurations, each representing a separate Swagger source.
 
+### Further reading
 TBD: swagen.config.json schema and general options
 
 [Advance configuration](https://github.com/swagen/swagen/wiki/Advanced-configuration)
 
 TBD: Writing configuration in Typescript instead of JavaScript
+
+## Documentation
+Swagen documentation can be found in the [wiki](https://github.com/swagen/swagen/wiki).
