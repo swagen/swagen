@@ -47,3 +47,6 @@ TBD: swagen.config.json schema and general options
 [Advance configuration](https://github.com/swagen/swagen/wiki/Advanced-configuration)
 
 TBD: Writing configuration in Typescript instead of JavaScript
+
+## Documentation
+Swagen documentation can be found in the [wiki](https://github.com/swagen/swagen/wiki).
