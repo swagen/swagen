@@ -53,6 +53,11 @@ declare namespace swagen {
         };
 
         /**
+         * Options for filtering services and models in the generated output.
+         */
+        filters?: Filters;
+
+        /**
          * Options for transforming parts of the generated output.
          */
         transforms?: Transforms;
@@ -61,6 +66,11 @@ declare namespace swagen {
          * Generator-specific options.
          */
         options: TOptions;
+    }
+
+    interface Filters {
+        model: (name: string, details: ModelTransformDetails) => boolean;
+        service: (name: string, details: ServiceTransformDetails) => boolean;
     }
 
     interface Transforms {
