@@ -1,4 +1,8 @@
 declare namespace swagen {
+    /**
+     * Represents a generator's contract.
+     * All generators must export the members defined by this interface.
+     */
     interface IGenerator<TOptions> {
         supportedModes: SupportedMode<TOptions>[];
         generate(definition: Definition, profile: Profile<TOptions>): string;
@@ -6,6 +10,9 @@ declare namespace swagen {
         validateProfile(profile: Profile<TOptions>): void;
     }
 
+    /**
+     * Represents a mode supported by the generator.
+     */
     interface SupportedMode<TOptions> {
         name: string;
         description: string;
@@ -15,6 +22,9 @@ declare namespace swagen {
         configBuilderFn: (options: TOptions, answers: {[key: string]: Object}, generalAnswers?: {[key: string]: Object}) => void;
     }
 
+    /**
+     * Represents a configuration profile.
+     */
     interface Profile<TOptions> {
         /**
          * URL to retrieve the Swagger JSON.
@@ -69,46 +79,46 @@ declare namespace swagen {
     }
 
     interface Filters {
-        model: (name: string, details: ModelTransformDetails) => boolean;
-        service: (name: string, details: ServiceTransformDetails) => boolean;
+        model: (name: string, details: ModelDetails) => boolean;
+        service: (name: string, details: ServiceDetails) => boolean;
     }
 
     interface Transforms {
-        modelName?: string | ModelNameTransformFn | (string | ModelNameTransformFn)[];
+        serviceName?: string | ServiceNameTransformFn | (string | ServiceNameTransformFn)[];
         operationName?: string | OperationNameTransformFn | (string | OperationNameTransformFn)[];
         parameterName?: string | ParameterNameTransformFn | (string | ParameterNameTransformFn)[];
+        modelName?: string | ModelNameTransformFn | (string | ModelNameTransformFn)[];
         propertyName?: string | PropertyNameTransformFn | (string | PropertyNameTransformFn)[];
-        serviceName?: string | ServiceNameTransformFn | (string | ServiceNameTransformFn)[];
     }
 
-    type ModelNameTransformFn = (modelName: string, details: ModelTransformDetails) => string;
-    type OperationNameTransformFn = (operationName: string, details: OperationTransformDetails) => string;
+    type ServiceNameTransformFn = (serviceName: string, details: ServiceDetails) => string;
+    type OperationNameTransformFn = (operationName: string, details: OperationDetails) => string;
     type ParameterNameTransformFn = (parameterName: string, details: any) => string;
-    type PropertyNameTransformFn = (propertyName: string, details: PropertyTransformDetails) => string;
-    type ServiceNameTransformFn = (serviceName: string, details: ServiceTransformDetails) => string;
+    type ModelNameTransformFn = (modelName: string, details: ModelDetails) => string;
+    type PropertyNameTransformFn = (propertyName: string, details: PropertyDetails) => string;
 
-    interface ModelTransformDetails {
-        modelType: 'complex'|'enum';
-        model: ModelDefinition;
+    interface ServiceDetails {
+        service: ServiceDefinition;
     }
 
-    interface OperationTransformDetails extends ServiceTransformDetails {
+    interface OperationDetails extends ServiceDetails {
         serviceName: string;
         operation: OperationDefinition;
     }
 
-    interface ParameterTransformDetails extends OperationTransformDetails {
+    interface ParameterDetails extends OperationDetails {
         operationName: string;
         parameters: ParameterDefinition[];
     }
 
-    interface PropertyTransformDetails extends ModelTransformDetails {
-        modelName: string;
-        property: PropertyDefinition;
+    interface ModelDetails {
+        modelType: 'complex'|'enum';
+        model: ModelDefinition;
     }
 
-    interface ServiceTransformDetails {
-        service: ServiceDefinition;
+    interface PropertyDetails extends ModelDetails {
+        modelName: string;
+        property: PropertyDefinition;
     }
 
     interface Definition {
@@ -129,11 +139,14 @@ declare namespace swagen {
         verb: 'get'|'post'|'put'|'delete'|'patch'|'head';
         parameters: ParameterDefinition[];
         responses: {[statusCode: string]: ResponseDefinition};
+        description?: string;
+        description2?: string;
     }
 
     interface ParameterDefinition {
         name: string;
-        type: 'path'|'query'|'body'|'header';
+        description?: string;
+        type: 'path'|'query'|'body'|'header'|'formData';
         required: boolean;
         dataType: DataType;
     }
