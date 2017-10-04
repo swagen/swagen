@@ -82,8 +82,8 @@ export interface GeneratorProfile<TOptions> extends Profile {
 }
 
 export interface Filters {
-    model: (name: string, details: ModelDetails) => boolean;
-    service: (name: string, details: ServiceDetails) => boolean;
+    model?: (name: string, details: ModelDetails) => boolean;
+    service?: (name: string, details: ServiceDetails) => boolean;
 }
 
 export interface Transforms {
