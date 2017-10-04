@@ -1,9 +1,0 @@
-swagen
-
-swagen init [--generator <generator>] [--mode <mode>] [--console] [--defaults]
-
-swagen definition [--file <file>] [--url <url>] <definition file>
-
-swagen modes <generator>
-
-swagen watch
