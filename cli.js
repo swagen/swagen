@@ -28,5 +28,18 @@ try {
     helpCommand();
 }
 if (commandModule) {
-    commandModule(argv);
+    try {
+        commandModule(argv);
+    } catch (ex) {
+        if (ex instanceof Error) {
+            console.log(chalk.red(ex.message));
+        } else {
+            console.log(chalk.red(ex));
+        }
+        console.log();
+        const helpArgs = {
+            _: [command]
+        };
+        helpCommand(helpArgs);
+    }
 }
