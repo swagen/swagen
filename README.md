@@ -20,6 +20,8 @@ swagen
 ```
 
 ### Further reading
+TBD: Command line reference
+
 [Installing Swagen locally in your project](https://github.com/angular-template/swagger-client/wiki/Installing-Swagen-locally-in-your-project)
 
 ## Generators
