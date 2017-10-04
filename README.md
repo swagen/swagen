@@ -42,7 +42,7 @@ swagen init
 This is an interactive command and ask you a series of questions before generating a `swagen.config.json` file in the current directory. In case a `swagen.config.json` file already exists in the current directory, it will add a new configuration to the existing file. A single `swagen.config.json` file can contain multiple configurations, each representing a separate Swagger source.
 
 ### Further reading
-TBD: swagen.config.json schema and general options
+[Swagen configuration schema and general options](https://github.com/swagen/swagen/wiki/Swagen-configuration-schema-and-general-options)
 
 [Advance configuration](https://github.com/swagen/swagen/wiki/Advanced-configuration)
 
