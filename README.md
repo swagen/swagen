@@ -20,7 +20,7 @@ swagen
 ```
 
 ### Further reading
-TBD: Command line reference
+[Command-line reference](https://github.com/swagen/swagen/wiki/Command-line-reference)
 
 [Installing Swagen locally in your project](https://github.com/angular-template/swagger-client/wiki/Installing-Swagen-locally-in-your-project)
 
@@ -28,6 +28,7 @@ TBD: Command line reference
 Swagen is a pluggable tool that uses generators plug-ins to perform the actual code generation. Each generator is a Node package following a naming convention of `swagen-xxxx` where `xxxx` is the name of the generator. Examples are `swagen-angular` or `swagen-dotnet-httpclient`. Having a concept of generator packages allows 3rd-parties to write their own generators and plug them into the tool.
 
 TBD: Writing a generator package.
+
 TBD: Writing local generators
 
 ## Configuration
@@ -41,6 +42,6 @@ This is an interactive command and ask you a series of questions before generati
 
 TBD: swagen.config.json schema and general options
 
-TBD: Advanced configuration with swagen.config.js file
+[Advance configuration](https://github.com/swagen/swagen/wiki/Advanced-configuration)
 
 TBD: Writing configuration in Typescript instead of JavaScript
