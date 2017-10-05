@@ -4,9 +4,9 @@
  */
 export interface IGenerator<TOptions> {
     supportedModes: SupportedMode<TOptions>[];
-    generate(definition: Definition, profile: Profile<TOptions>): string;
+    generate(definition: Definition, profile: GeneratorProfile<TOptions>): string;
     getDefaultOptions(mode: string): TOptions;
-    validateProfile(profile: Profile<TOptions>): void;
+    validateProfile(profile: GeneratorProfile<TOptions>): void;
 }
 
 /**
@@ -21,12 +21,13 @@ export interface SupportedMode<TOptions> {
     configBuilderFn: (options: TOptions, answers: {[key: string]: Object}, generalAnswers?: {[key: string]: Object}) => void;
 }
 
+/**
+ * Represents a Swagen configuration.
+ * This is the combination of the swagen.config.json and swagen.config.js files.
+ */
 export declare type Configuration = {[profileName: string]: Profile};
 
-/**
- * Represents a configuration profile.
- */
-export interface Profile {
+interface BaseProfile {
     /**
      * URL to retrieve the Swagger JSON.
      */
@@ -74,7 +75,21 @@ export interface Profile {
     transforms?: Transforms;
 }
 
-export interface GeneratorProfile<TOptions> extends Profile {
+/**
+ * Represents a configuration profile.
+ * A profile is the configuration for one swagger source and the details on how it should be used
+ * to generate code.
+ */
+export interface Profile extends BaseProfile {
+    options: any;
+}
+
+/**
+ * Represents a strongly-typed configuration profile.
+ * A profile is the configuration for one swagger source and the details on how it should be used
+ * to generate code.
+ */
+export interface GeneratorProfile<TOptions> extends BaseProfile {
     /**
      * Generator-specific options.
      */
