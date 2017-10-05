@@ -2,23 +2,20 @@
  * Represents a generator's contract.
  * All generators must export the members defined by this interface.
  */
-export interface IGenerator<TOptions> {
-    supportedModes: SupportedMode<TOptions>[];
-    generate(definition: Definition, profile: GeneratorProfile<TOptions>): string;
-    getDefaultOptions(mode: string): TOptions;
-    validateProfile(profile: GeneratorProfile<TOptions>): void;
-}
+export declare type Generator = GeneratorMode | GeneratorMode[];
 
 /**
  * Represents a mode supported by the generator.
  */
-export interface SupportedMode<TOptions> {
+export interface GeneratorMode {
     name: string;
     description: string;
     language: string;
     extension: string;
     prompts: any[];
-    configBuilderFn: (options: TOptions, answers: {[key: string]: Object}, generalAnswers?: {[key: string]: Object}) => void;
+    buildProfile: <TOptions>(options: TOptions, answers: {[key: string]: Object}, generalAnswers?: {[key: string]: Object}) => void;
+    validateProfile: (profile: Profile) => void;
+    generate: (definition: Definition, profile: Profile) => string;
 }
 
 /**
