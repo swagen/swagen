@@ -11,10 +11,33 @@ export interface GeneratorMode {
     name: string;
     description: string;
     language: string;
+
+    /**
+     * File extension for the language.
+     */
     extension: string;
+
+    /**
+     * List of inquirer.js prompts to ask the user when running the swagen init command to create a
+     * new configuration profile.
+     */
     prompts: any[];
+
+    /**
+     * Function to build a profile object from the answers given by the user to the questions asked
+     * by during the swagen init command.
+     */
     buildProfile: <TOptions>(options: TOptions, answers: {[key: string]: Object}, generalAnswers?: {[key: string]: Object}) => void;
+
+    /**
+     * Function to validate the generator-specific pieces of a profile.
+     * For any issues found with the profile, an exception should be thrown.
+     */
     validateProfile: (profile: Profile) => void;
+
+    /**
+     * Function to build code from the given parsed Swagger definition and profile details.
+     */
     generate: (definition: Definition, profile: Profile) => string;
 }
 

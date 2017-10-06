@@ -11,6 +11,7 @@ const utils = require('./lib/utils');
 const cli = utils.cli;
 const helpCommand = require('./lib/help');
 
+// Calculate arguments
 const allArgs = process.argv;
 const argsCount = _.endsWith(allArgs[0].toLowerCase(), 'node.exe') ? 3 : 2;
 
@@ -35,12 +36,13 @@ try {
     helpCommand();
 }
 
+// This should not happen, but just in case the command module is falsey or is not a function.
 if (!commandModule || typeof commandModule !== 'function') {
     cli.error(`An unexpected error occurred; could not load the command '${command}'.`);
 }
 
 try {
-    // Run the command
+    // Run the command, passing in the parsed arguments
     commandModule(argv);
 } catch (ex) {
     // If the command throws an exception, display the error message and command help.
