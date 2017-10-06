@@ -23,6 +23,14 @@ export interface GeneratorMode {
      */
     prompts: any[];
 
+    defaultTransforms?: {
+        serviceName?: string | string[];
+        operationName?: string | string[];
+        parameterName?: string | string[];
+        modelName?: string | string[];
+        propertyName?: string | string[];
+    };
+
     /**
      * Function to build a profile object from the answers given by the user to the questions asked
      * by during the swagen init command.
@@ -33,7 +41,7 @@ export interface GeneratorMode {
      * Function to validate the generator-specific pieces of a profile.
      * For any issues found with the profile, an exception should be thrown.
      */
-    validateProfile: (profile: Profile) => void;
+    validateProfile?: (profile: Profile) => void;
 
     /**
      * Function to build code from the given parsed Swagger definition and profile details.
