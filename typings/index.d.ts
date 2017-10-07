@@ -210,4 +210,5 @@ export interface DataType {
     enum?: string;
     isArray: boolean;
     required: string;
+    originalName?: string;
 }
