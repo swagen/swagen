@@ -1,6 +1,6 @@
 {
     "name": "swagen",
-    "version": "1.0.0-beta.40",
+    "version": "1.0.0-beta.41",
     "description": "Client code generator for Swagger JSON",
     "main": "cli.js",
     "typings": "typings/index.d.ts",
@@ -16,14 +16,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/angular-template/swagger-client.git"
+        "url": "git+https://github.com/swagen/swagen.git"
     },
     "author": "Swagen",
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/angular-template/swagger-client/issues"
+        "url": "https://github.com/swagen/swagen/issues"
     },
-    "homepage": "https://github.com/angular-template/swagger-client#readme",
+    "homepage": "https://github.com/swagen/swagen#readme",
     "dependencies": {
         "chalk": "^2.1.0",
         "inquirer": "^3.3.0",
