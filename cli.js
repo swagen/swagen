@@ -4,11 +4,10 @@
 
 const process = require('process');
 
+const chalk = require('chalk');
 const minimist = require('minimist');
 const _ = require('lodash');
 
-const utils = require('./lib/utils');
-const cli = utils.cli;
 const helpCommand = require('./lib/help');
 
 // Calculate arguments
@@ -31,14 +30,14 @@ try {
 } catch (ex) {
     // If the module could not be loaded, it means that the specified command is invalid.
     // Display error message and help.
-    cli.error(`Invalid command: '${command}'`);
-    cli.error(ex);
+    console.log(chalk.red(`Invalid command: '${command}'`));
+    console.log(chalk.red(ex));
     helpCommand();
 }
 
 // This should not happen, but just in case the command module is falsey or is not a function.
 if (!commandModule || typeof commandModule !== 'function') {
-    cli.error(`An unexpected error occurred; could not load the command '${command}'.`);
+    console.log(chalk.red(`An unexpected error occurred; could not load the command '${command}'.`));
 }
 
 try {
@@ -47,9 +46,9 @@ try {
 } catch (ex) {
     // If the command throws an exception, display the error message and command help.
     if (ex instanceof Error) {
-        cli.error(ex.message);
+        console.log(chalk(ex.message));
     } else {
-        cli.error(ex);
+        console.log(chalk(ex));
     }
     console.log();
     const helpArgs = {
