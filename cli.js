@@ -61,7 +61,6 @@ function handleCommandError(ex) {
     } else {
         console.log(chalk.red(ex));
     }
-    console.log();
     const helpArgs = {
         _: [command]
     };
