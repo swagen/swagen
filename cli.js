@@ -42,13 +42,24 @@ if (!commandModule || typeof commandModule !== 'function') {
 
 try {
     // Run the command, passing in the parsed arguments
-    commandModule(argv);
+    const promise = commandModule(argv);
+    if (promise && promise instanceof Promise) {
+        promise.catch(err => handleCommandError(err));
+    }
 } catch (ex) {
+    handleCommandError(ex);
+}
+
+/**
+ * If the command throws an exception, display the error message and command help
+ * @param {*} ex The thrown exception
+ */
+function handleCommandError(ex) {
     // If the command throws an exception, display the error message and command help.
     if (ex instanceof Error) {
-        console.log(chalk(ex.message));
+        console.log(chalk.red(ex.message));
     } else {
-        console.log(chalk(ex));
+        console.log(chalk.red(ex));
     }
     console.log();
     const helpArgs = {
