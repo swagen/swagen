@@ -6,10 +6,7 @@
     "extends": "eslint:recommended",
     "rules": {
         "indent": "off",
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+        "linebreak-style": "off",
         "quotes": [
             "error",
             "single",
