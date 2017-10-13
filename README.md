@@ -1,6 +1,8 @@
 # Swagen
 
+[![Build Status](https://travis-ci.org/swagen/swagen.svg?branch=master)](https://travis-ci.org/swagen/swagen)
 [![Greenkeeper badge](https://badges.greenkeeper.io/swagen/swagen.svg)](https://greenkeeper.io/)
+
 Swagen is a pluggable command-line tool to generate code and documentation from [Swagger](https://swagger.io/) definitions.
 
 ## Getting Started
