@@ -17,7 +17,7 @@ npm install -g swagen-angular
 
 # Create configuration file
 # This will ask you some questions and create a swagen.config.json file in the local directory.
-swagen init --generator angular --mode ng-typescript
+swagen init
 
 # Generate the code
 swagen
