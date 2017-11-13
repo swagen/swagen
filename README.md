@@ -6,7 +6,7 @@
 Swagen is a pluggable command-line tool to generate code and documentation from [Swagger](https://swagger.io/) definitions.
 
 ## Getting Started
-> This section discusses installing the Swagen tool globally. We will also discuss installing it locally in your project to avoid global dependencies.
+> This section discusses installing the Swagen tool globally. See [here](https://github.com/angular-template/swagger-client/wiki/Installing-Swagen-locally-in-your-project) for installing it locally in your project to avoid global dependencies.
 
 ```sh
 # Install Swagen CLI
