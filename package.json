@@ -32,6 +32,6 @@
         "needle": "^2.0.1"
     },
     "devDependencies": {
-        "eslint": "^4.8.0"
+        "eslint": "^5.0.0"
     }
 }
