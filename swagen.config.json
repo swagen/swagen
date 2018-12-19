@@ -1,0 +1,44 @@
+{
+    "angular2": {
+        "output": "../../../temp/generated.ts",
+        "generator": "angular",
+        "mode": "ng-typescript",
+        "transforms": {
+            "serviceName": [
+                "pascal-case"
+            ],
+            "operationName": [
+                "camel-case"
+            ],
+            "parameterName": [
+                "camel-case"
+            ],
+            "modelName": [
+                "pascal-case"
+            ],
+            "propertyName": [
+                "camel-case"
+            ]
+        },
+        "url": "http://petstore.swagger.io/v2/swagger.json",
+        "options": {
+            "generation": {
+                "generateInterfaces": false,
+                "generateImplementations": true
+            },
+            "baseUrl": {
+                "strategy": "ImportedVar",
+                "importedVar": {
+                    "importFrom": "environments/environment",
+                    "importVariable": "environment",
+                    "property": "baseUrl"
+                }
+            },
+            "angular": {
+                "tokenType": "InjectedToken",
+                "httpFramework": "HttpClient",
+                "futuresType": "Observables"
+            }
+        }
+    }
+}

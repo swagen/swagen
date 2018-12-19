@@ -1,6 +1,6 @@
 {
     "name": "swagen",
-    "version": "1.0.0-beta.50",
+    "version": "1.0.0-beta.51",
     "description": "Client code generator for Swagger JSON",
     "main": "cli.js",
     "typings": "typings/index.d.ts",
