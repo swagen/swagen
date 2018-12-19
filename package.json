@@ -25,13 +25,13 @@
     },
     "homepage": "https://github.com/swagen/swagen#readme",
     "dependencies": {
-        "chalk": "^2.1.0",
-        "inquirer": "^5.0.1",
-        "lodash": "^4.17.4",
+        "chalk": "^2.4.1",
+        "inquirer": "^6.2.1",
+        "lodash": "^4.17.11",
         "minimist": "^1.2.0",
-        "needle": "^2.0.1"
+        "needle": "^2.2.4"
     },
     "devDependencies": {
-        "eslint": "^4.8.0"
+        "eslint": "^5.10.0"
     }
 }
