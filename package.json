@@ -1,6 +1,6 @@
 {
     "name": "swagen",
-    "version": "1.0.0-beta.54",
+    "version": "1.0.0-beta.55",
     "description": "Client code generator for Swagger JSON",
     "main": "cli.js",
     "typings": "typings/index.d.ts",
@@ -32,6 +32,6 @@
         "needle": "^2.4.0"
     },
     "devDependencies": {
-        "eslint": "^6.1.0"
+        "eslint": "^6.2.2"
     }
 }
